@@ -6,7 +6,24 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+<% if flash[:errors] %>
+  <ul class="error-messages">
+    <% flash[:errors].each do |error| %>
+      <li><%= error %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+  <% if current_user %>
+    <%= current_user.name %>
+    Logged in
+    <%= button_to "Logout", session_url, method: :delete %>
+  <% else %>
+    not logged in
+  <% end %>
+
 <body>
+
 
 <%= yield %>
 
