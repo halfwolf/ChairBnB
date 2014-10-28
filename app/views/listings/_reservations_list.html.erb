@@ -1,0 +1,8 @@
+<div class="reservation-list">
+  <h2>Reservation Requests</h2>
+  <% listing.reservations.each do |res| %>
+    <% res_price = (listing.price * (res.end - res.start)) / 3600 %>
+    <% start = res.start.strftime("%m/%d/%Y") %>
+    <li>From <%= res.start %> to <%= res.end %> for $<%=number_with_precision(res_price, :precision => 2) %> and status is <%= res.status %></li>
+  <% end %>
+</div>

@@ -2,8 +2,6 @@
 <html>
 <head>
   <title>ChairBnB</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <% if flash[:errors] %>
@@ -18,6 +16,7 @@
     <%= current_user.name %>
     Logged in
     <%= button_to "Logout", session_url, method: :delete %>
+    <a href="<%= new_listing_url %>">Add Chair</a>
   <% else %>
     not logged in
   <% end %>

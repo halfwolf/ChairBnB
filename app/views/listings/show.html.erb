@@ -1,0 +1,13 @@
+<h1><%= @listing.name %></h1>
+<h4>Owned By: <%= @listing.owner.name %></h4>
+<p><%= @listing.description %></p>
+<h3>Price: $<%= number_with_precision(@listing.price, :precision => 2) %> / hour</h3>
+
+<br>
+<% if current_user == @listing.owner %>
+  <%= button_to "Destroy Chair", listing_url(@listing), method: :delete %>
+  <a href="<%= edit_listing_url(@listing) %>">Edit</a>
+  <%= render "reservations_list", listing: @listing %>
+<% else %>
+  <%= render "res_form", listing: @listing %>
+<% end %>

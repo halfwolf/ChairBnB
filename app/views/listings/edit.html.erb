@@ -1,0 +1,43 @@
+<form class="new-listing" action="<%= listing_url(@listing) %>" method="GET">
+  <input
+    type="hidden"
+    name-"_method"
+    value="PATCH">
+
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+
+  <label for="name">Name<label>
+  <input
+    id="name"
+    name="listing[name]"
+    type="text"
+    value="<%= @listing.name %>">
+
+  <label for="description">Description<label>
+  <textarea
+    id="description"
+    name="listing[description]"><%= @listing.description %></textarea>
+
+  <label for="location">Location<label>
+  <input
+    id="location"
+    name="listing[location]"
+    type="text"
+    value="<%= @listing.location %>">
+
+  <label for="price">Price<label>
+  <input
+    id="price"
+    name="listing[price]"
+    type="number"
+    min="0"
+    max="9999"
+    step="0.01"
+    value="<%= @listing.price %>">
+
+    <button>Update</button>
+
+</form>

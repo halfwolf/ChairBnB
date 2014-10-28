@@ -1,0 +1,3 @@
+<% @listings.each do |listing| %>
+  <li><%= link_to listing.name, listing_url(listing) %> - $<%= number_with_precision(listing.price, :precision => 2)%></li>
+<% end %>

@@ -1,0 +1,30 @@
+<div class="reservation-form">
+  <form class="new-reservation" action="<%= reservations_url %>" method="POST">
+    <input
+      type="hidden"
+      name="authenticity_token"
+      value="<%= form_authenticity_token %>">
+
+    <input
+    type="hidden"
+    name="reservation[chair_id]"
+    value="<%= listing.id %>">
+
+    <label for="start">Start Date</label>
+    <input
+      type="datetime-local"
+      id="start"
+      name="reservation[start]"
+      step="900">
+
+    <label for="end">End Date</label>
+    <input
+      type="datetime-local"
+      id="end"
+      name="reservation[end]"
+      step="900">
+
+      <button>Reserve</button>
+
+  </form>
+</div>

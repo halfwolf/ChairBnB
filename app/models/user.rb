@@ -2,6 +2,19 @@ class User < ActiveRecord::Base
   validates :email, :password_digest, :name, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
 
+  has_many( :listings,
+    class_name: "Listing",
+    foreign_key: :owner_id,
+    primary_key: :id,
+    dependent: :destroy
+    )
+
+  has_many( :reservations,
+    class_name: "Reservation",
+    foreign_key: :sitter_id,
+    primary_key: :id,
+    dependent: :destroy)
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(email, password)

@@ -1,3 +1,8 @@
 <h1><%= @user.name %></h1>
 <h3><%= @user.email %></h3>
 <p><%= @user.bio %></p>
+<ul>
+  <% @user.listings.each do |listing| %>
+    <li><%= listing.name %> - <%= listing.location %> </li>
+  <% end %>
+</ul>
