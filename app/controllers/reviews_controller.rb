@@ -18,5 +18,8 @@ class ReviewsController < ApplicationController
   private
   
   def review_params
-
+    
+  
+  end
+  
 end

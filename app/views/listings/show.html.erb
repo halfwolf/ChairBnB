@@ -8,6 +8,7 @@
   <%= button_to "Destroy Chair", listing_url(@listing), method: :delete %>
   <a href="<%= edit_listing_url(@listing) %>">Edit</a>
   <%= render "reservations_list", listing: @listing %>
-<% else %>
+<% elsif current_user %>
   <%= render "res_form", listing: @listing %>
+<% else %>
 <% end %>

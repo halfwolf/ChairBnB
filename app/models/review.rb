@@ -1,5 +1,9 @@
 class Review < ActiveRecord::Base
   
+  validates :author_id, :reservation_id, :title, presence: true
+  validates :reservation_id, uniqueness: true
+  
+  
   belongs_to :reservation
   
   belongs_to( :author,

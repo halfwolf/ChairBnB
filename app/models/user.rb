@@ -15,6 +15,18 @@ class User < ActiveRecord::Base
     primary_key: :id,
     dependent: :destroy)
     
+  has_many( :sent_messages,
+    class_name: "Message",
+    foreign_key: :sender_id,
+    primary_key: :id,
+    dependent: :destroy)
+    
+  has_many( :received_messages,
+    class_name: "Message",
+    foreign_key: :receiver_id,
+    primary_key: :id,
+    dependent: :destroy)
+    
   has_many :reviews, through: :reservations, source: :review
 
   after_initialize :ensure_session_token

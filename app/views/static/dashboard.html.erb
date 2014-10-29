@@ -1,0 +1,18 @@
+<h1> Welcome, <%= current_user.name %>!</h1>
+
+<h2>Listings</h2>
+  <% current_user.listings.each do |chair| %>
+    <li><%= chair.name %> - <%= chair.description %></li>
+  <% end %>
+
+<h2>Messages</h2>
+    <% current_user.received_messages.each do |message| %>
+    <li><%= message.subject %> from <%= message.author %> - Read? <%= message.read %></li>
+    <% end %>
+    
+<h2>Reservations</h2>
+  <% current_user.reservations.each do |res| %>
+    <li><%= res.start %> to <%= res.end %> %></li>
+  <% end %>
+  
+<h2>Reviews</h2>

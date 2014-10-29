@@ -4,7 +4,6 @@ RSpec.describe User, :type => :model do
 
   it "requires an email" do
     no_email_user = User.create({name: "Test User", password: "password1"})
-    no_email_user.errors.each { |er| puts er }
     expect(no_email_user.errors[:email]).to include("can't be blank")
   end
 
