@@ -13,6 +13,10 @@ class MessagesController < ApplicationController
       render :new
     end
   end
+  
+  def show
+    @message = Message.find(params[:id])
+  end
 
   private 
   

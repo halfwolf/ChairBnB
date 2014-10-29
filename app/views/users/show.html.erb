@@ -6,3 +6,5 @@
     <li><%= listing.name %> - <%= listing.location %> </li>
   <% end %>
 </ul>
+
+ <%= button_to "Send #{@user.name} a message", new_user_message_url(@user.id), method: :get %>

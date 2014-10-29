@@ -1,0 +1,26 @@
+<%  @user = User.find(user_id) %>
+<h3>Recipient: <%=@user.name %></h3>
+<form class="new-message" action="<%= user_messages_url(@user) %>" method="POST">
+  <input
+    type="hidden"
+    name="authenticity_token"
+    value="<%= form_authenticity_token %>">
+    
+  <input 
+  type="hidden"
+  name="message[receiver_id]"
+  value="<%= @user.id %>">
+
+  <label for="subject">subject</label>
+  <input
+    type="text"
+    name="message[subject]"
+    id="subject">
+
+  <label for="body">Body</label>
+  <textarea
+    name="message[body]"
+    id="body"></textarea>
+
+    <button>Send</button>
+</form>

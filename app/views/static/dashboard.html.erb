@@ -7,7 +7,7 @@
 
 <h2>Messages</h2>
     <% current_user.received_messages.each do |message| %>
-    <li><%= message.subject %> from <%= message.author %> - Read? <%= message.read %></li>
+    <li><a href="<%= message_url(message)%>"><%= message.subject %></a> from <%= message.author %> - Read? <%= message.read %></li>
     <% end %>
     
 <h2>Reservations</h2>
