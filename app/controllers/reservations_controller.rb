@@ -12,8 +12,15 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    @reservation = current_user.reservations.find(params[:id])
+    if @reservation.destroy
+      redirect_to listings_url
+    else
+      flash.now[:errors] = @reservation.errors.full_messages
+      redirect_to redirect_to listing_url(@reservation.chair_id)
+    end
   end
-
+  
   def index
     @reservations = Listing.find(params[:listing_id]).reservations
   end
