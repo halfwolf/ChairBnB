@@ -14,6 +14,8 @@ class User < ActiveRecord::Base
     foreign_key: :sitter_id,
     primary_key: :id,
     dependent: :destroy)
+    
+  has_many :reviews, through: :reservations, source: :review
 
   after_initialize :ensure_session_token
 

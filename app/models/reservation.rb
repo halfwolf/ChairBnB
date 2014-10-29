@@ -5,8 +5,11 @@ class Reservation < ActiveRecord::Base
     foreign_key: :sitter_id,
     primary_key: :id)
   
-  belongs_to :chair
+  belongs_to :chair, 
+  class_name: "Listing",
+  foreign_key: :chair_id,
+  primary_key: :id
   
-  has_many :reviews
+  has_one :review, dependent: :destroy
 
 end
