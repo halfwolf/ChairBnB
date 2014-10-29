@@ -1,7 +1,14 @@
 class User < ActiveRecord::Base
   validates :email, :password_digest, :name, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
+  
 
+  has_attached_file :avatar, styles: { medium: "300x300>",
+  icon: "100x100#",
+  icon_small: "50x50#" },
+  default_url: ":style/missing.png"
+  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
+  
   has_many( :listings,
     class_name: "Listing",
     foreign_key: :owner_id,
@@ -43,7 +50,7 @@ class User < ActiveRecord::Base
   end
 
   attr_reader :password
-
+  
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(self.password)

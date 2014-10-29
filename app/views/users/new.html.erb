@@ -1,4 +1,4 @@
-<form class="new-user" action="<%= users_url %>" method="POST">
+<form class="new-user" action="<%= users_url %>" enctype="multipart/form-data" method="POST">
   <input
     type="hidden"
     name="authenticity_token"
@@ -23,6 +23,8 @@
     type="password"
     name="user[password]"
     id="user_password">
+    
+    <input type="file" id="photo_image" name="user[avatar]">
 
     <button>Sign Up</button>
 
