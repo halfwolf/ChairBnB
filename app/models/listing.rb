@@ -14,5 +14,8 @@ class Listing < ActiveRecord::Base
     
   has_many :reviews, through: :reservations, source: :review
     
+  def pending_reservations?
+    self.reservations.where("status = 'PENDING'").length > 0
+  end  
     
 end

@@ -2,19 +2,23 @@
 
 <h2>Listings</h2>
   <% current_user.listings.each do |chair| %>
-    <li><a href="<%= listing_url(chair) %>"><%= chair.name %></a> - <%= chair.description %></li>
+    <li><a href="<%= listing_url(chair) %>"><%= chair.name %></a> - 
+      <%= chair.description %>  <%= "PENDING RESERVATIONS!" if chair.pending_reservations?%> </li>
   <% end %>
 
 <h2>Messages</h2>
     <% current_user.received_messages.each do |message| %>
-    <li><a href="<%= message_url(message)%>"><%= message.subject %></a> from <%= message.author %> - Read? <%= message.read %></li>
+    <% message.read ? read = "Read" : read = "Unread"%>
+    <li><a href="<%= message_url(message)%>"><%= message.subject %></a> from <%= message.author.name %> - <%= read %></li>
     <% end %>
     
 <h2>Reservations</h2>
   <% current_user.reservations.each do |res| %>
-    <li><%= res.start_date %> to <%= res.end_date %> %></li>
-  <% end %>
-  
+    <% res_price = (res.chair.price * (res.end_date - res.start_date)) / 3600 %>
+    <% start = res.start_date.strftime("%m/%d/%Y %H:%M") %>
+    <% stop = res.end_date.strftime("%m/%d/%Y %H:%M") %>
+    <li>From <%= start %> to <%= stop %> for $<%=number_with_precision(res_price, :precision => 2) %> and status is <%= res.status %> <%= (button_to "Leave Review", new_reservation_review_url(res), method: :get) if res.review_ready? %> 
+      <% end %>
 <h2>Reviews</h2>
   <h4>Written</h4>
     <% current_user.written_reviews.each do |review| %>

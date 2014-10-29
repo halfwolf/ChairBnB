@@ -12,5 +12,10 @@ class Message < ActiveRecord::Base
     foreign_key: :receiver_id,
     primary_key: :id)
   
+
+    def viewed!
+      self.read = true
+      self.save!
+    end
   
 end

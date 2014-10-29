@@ -5,3 +5,5 @@
   <% params[:user_id] = @message.sender_id %>
   <%= render "message_form", user_id: @message.sender_id %>
 <% end %>
+
+<% @message.viewed! unless @message.read %>

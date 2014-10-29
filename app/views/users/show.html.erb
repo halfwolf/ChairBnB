@@ -2,8 +2,8 @@
 <h3><%= @user.email %></h3>
 <p><%= @user.bio %></p>
 <ul>
-  <% @user.listings.each do |listing| %>
-    <li><%= listing.name %> - <%= listing.location %> </li>
+  <% @user.listings.each do |chair| %>
+    <li><a href="<%= listing_url(chair) %>"><%= chair.name %> - <%= chair.location %> </li>
   <% end %>
 </ul>
 

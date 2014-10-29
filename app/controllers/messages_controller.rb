@@ -8,6 +8,7 @@ class MessagesController < ApplicationController
     @message = current_user.sent_messages.new(message_params)
     if @message.save
       flash.now[:messages] = ["Message sent!"]
+      redirect_to dashboard_url
     else
       flash.now[:errors] = @message.errors.full_messages
       render :new

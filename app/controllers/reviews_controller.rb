@@ -5,7 +5,8 @@ class ReviewsController < ApplicationController
   end
   
   def create
-    @review = current_user.reviews.new(review_params)
+    @review = current_user.written_reviews.new(review_params)
+    @review.reservation_id = params[:reservation_id]
     if @review.save
       flash.now[:messages] = ["You have left a review!"]
       redirect_to listings_url
@@ -18,8 +19,7 @@ class ReviewsController < ApplicationController
   private
   
   def review_params
-    
-  
+    params.require(:review).permit(:title, :body, :rating)
   end
   
 end

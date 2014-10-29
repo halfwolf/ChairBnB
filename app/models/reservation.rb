@@ -29,6 +29,10 @@ class Reservation < ActiveRecord::Base
     self.status = "DENIED"
     self.save!
   end
+
+  def review_ready?
+    self.end_date < Time.now && self.status == "APPROVED" && self.review.nil?
+  end
   
   private
   
@@ -45,8 +49,10 @@ class Reservation < ActiveRecord::Base
     overlapping_reservations.where("status = 'PENDING'")
   end
 
-  def overlapping_pending_requests
-    overlapping_reservations.where("status = 'PENDING'")
+  def overlapping_approved_requests
+    overlapping_reservations.where("status = 'APPROVED'")
   end
+  
+
 
 end

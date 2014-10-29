@@ -14,7 +14,7 @@
 
   <% if current_user %>
     <%= current_user.name %>
-    Logged in
+    <a href="<%= dashboard_url %>">Dashboard</a>
     <%= button_to "Logout", session_url, method: :delete %>
     <a href="<%= new_listing_url %>">Add Chair</a>
   <% else %>

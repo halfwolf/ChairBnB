@@ -1,7 +1,8 @@
 <div class="reservation-list">
   <h2>Reservation Requests</h2>
-  <% listing.reservations.each do |res| %>
-    <% res_price = (listing.price * (res.end_date - res.start_date)) / 3600 %>
+  <% reservations.each do |res| %>
+    <% next if res.status == "DENIED" %>
+    <% res_price = (res.chair.price * (res.end_date - res.start_date)) / 3600 %>
     <% start = res.start_date.strftime("%m/%d/%Y %H:%M") %>
     <% stop = res.end_date.strftime("%m/%d/%Y %H:%M") %>
     <li>From <%= start %> to <%= stop %> for $<%=number_with_precision(res_price, :precision => 2) %> and status is <%= res.status %><%= button_to "Approve", approve_reservation_url(res)%>
