@@ -12,5 +12,7 @@ class Listing < ActiveRecord::Base
     foreign_key: :chair_id,
     primary_key: :id)
     
-    has_many :reviews, through: :reservations, source: :review
+  has_many :reviews, through: :reservations, source: :review
+    
+    
 end

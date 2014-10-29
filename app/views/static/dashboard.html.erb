@@ -16,3 +16,11 @@
   <% end %>
   
 <h2>Reviews</h2>
+  <h4>Written</h4>
+    <% current_user.written_reviews.each do |review| %>
+      <li><%= review.title %></li>
+    <% end %>
+  <h4>About</h4>
+  <% current_user.received_reviews.each do |review| %>
+    <li><%= review.reservation.chair.name %> - <%= review.title %></li>
+  <% end %>

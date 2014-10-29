@@ -27,7 +27,8 @@ class User < ActiveRecord::Base
     primary_key: :id,
     dependent: :destroy)
     
-  has_many :reviews, through: :reservations, source: :review
+  has_many :written_reviews, through: :reservations, source: :review
+  has_many :received_reviews, through: :listings, source: :reviews
 
   after_initialize :ensure_session_token
 
