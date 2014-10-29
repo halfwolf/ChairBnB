@@ -11,8 +11,11 @@ Rails.application.routes.draw do
   end
   
   resources :reservations, only: [:create, :destroy] do 
+    post "approve", on: :member
+   post "deny", on: :member
     resources :reviews, only: [:new, :create]
   end
+
 
   root 'static#home'
   
