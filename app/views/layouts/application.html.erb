@@ -3,6 +3,8 @@
 <head>
   <title>ChairBnB</title>
   <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag :application %>
+
 </head>
 <% if flash[:errors] %>
   <ul class="error-messages">
@@ -11,21 +13,25 @@
     <% end %>
   </ul>
 <% end %>
-
-  <% if current_user %>
-    <%= current_user.name %>
-    <a href="<%= dashboard_url %>">Dashboard</a>
-    <%= button_to "Logout", session_url, method: :delete %>
-    <a href="<%= new_listing_url %>">Add Chair</a>
-  <% else %>
-    <a href="<%= new_session_url %>">Log In</a>
-    <a href="<%= new_user_url %>">Sign Up</a>
-  <% end %>
-
 <body>
+<div class=main-navbar>
+  <% if current_user %>
+    <a href="<%= dashboard_url %>" class="dashboard-header">Dashboard</a>
+    <div class="username-header">Hi, <%= current_user.name %>!</div>
+     <a href="<%= new_listing_url %>" class="addchair-header">Add Chair</a>
+    <%= button_to "Logout", session_url, method: :delete, class: "logout-header" %>
+   
+  <% else %>
+    <a href="<%= new_session_url %>" class="login-header">Log In</a>
+    <a href="<%= new_user_url %>" class="login-header">Sign Up</a>
+  <% end %>
+</div>
+  <div class="content">
+  <%= yield %>
+  </div>
 
 
-<%= yield %>
-
+<div class="footbar"> About
+</div>
 </body>
 </html>
