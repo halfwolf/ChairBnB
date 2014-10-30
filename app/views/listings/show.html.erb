@@ -1,14 +1,35 @@
-<h1><%= @listing.name %></h1>
-<h4>Owned By: <%= @listing.owner.name %></h4>
-<p><%= @listing.description %></p>
-<h3>Price: $<%= number_with_precision(@listing.price, :precision => 2) %> / hour</h3>
+<div class-"listing-show">
+ 
+ <div class="listing-pictures"><%= image_tag @listing.pictures.first.pic.url%></div>
+ 
+ 
+  <div class="owner-info">
+    
+   <div class="profile-pic-border group">
+     <%= image_tag @listing.owner.avatar.url(:icon), class: "profile-pic" %>
+   </div>
+   <h4>Owned By: <%= @listing.owner.name %></h4>
+   
+ </div>
+   
+ 
+  <div class="listing-show-info">
+    <h1><%= @listing.name %></h1>
+     <p><%= @listing.description %></p>
+    
+  </div>
+</div>
 
-<br>
-<% if current_user == @listing.owner %>
-  <%= button_to "Destroy Chair", listing_url(@listing), method: :delete %>
-  <a href="<%= edit_listing_url(@listing) %>">Edit</a>
-  <%= render "reservations_list", reservations: @listing.reservations %>
-<% elsif current_user %>
-  <%= render "res_form", listing: @listing %>
-<% else %>
-<% end %>
+<div class="listing-utilities">
+  <% if current_user == @listing.owner %>
+    <%= button_to "Destroy Chair", listing_url(@listing), method: :delete %>
+    <a href="<%= edit_listing_url(@listing) %>">Edit</a>
+    <%= render "reservations_list", reservations: @listing.reservations %>
+  <% elsif current_user %>
+  <h3>Price: $<%= number_with_precision(@listing.price, :precision => 2) %> / hour</h3>
+    <%= render "res_form", listing: @listing %>
+  <% else %>
+  <% end %>
+</div>
+
+

@@ -1,10 +1,15 @@
-<h1><%= @user.name %></h1>
-<h3><%= @user.email %></h3>
-<p><%= @user.bio %></p>
-<%= image_tag @user.avatar.url(:icon) %>
+<div class="profile-pic-border group">
+  <%= image_tag @user.avatar.url(:icon), class: "profile-pic" %>
+</div>
+
+<div class="personal-info group">
+  <h1><%= @user.name %></h1>
+  <h3><%= @user.email %></h3>
+  <p><%= @user.bio %></p>
+</div>
 <ul>
   <% @user.listings.each do |chair| %>
-    <li><a href="<%= listing_url(chair) %>"><%= chair.name %> - <%= chair.location %> </li>
+    <li><a href="<%= listing_url(chair) %>"><%= chair.name %> - <%= chair.zip_code %> </li>
   <% end %>
 </ul>
 

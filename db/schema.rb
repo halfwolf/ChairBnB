@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141029220031) do
+ActiveRecord::Schema.define(version: 20141030153641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,12 +19,22 @@ ActiveRecord::Schema.define(version: 20141029220031) do
   create_table "listings", force: true do |t|
     t.string   "name"
     t.text     "description"
-    t.string   "location"
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.decimal  "price",       precision: 6, scale: 2
+    t.string   "room_type"
+    t.string   "chair_type"
+    t.string   "street"
+    t.string   "city"
+    t.integer  "zip_code"
+    t.integer  "seats"
   end
+
+  add_index "listings", ["chair_type"], name: "index_listings_on_chair_type", using: :btree
+  add_index "listings", ["room_type"], name: "index_listings_on_room_type", using: :btree
+  add_index "listings", ["seats"], name: "index_listings_on_seats", using: :btree
+  add_index "listings", ["zip_code"], name: "index_listings_on_zip_code", using: :btree
 
   create_table "messages", force: true do |t|
     t.integer  "sender_id"
@@ -38,6 +48,17 @@ ActiveRecord::Schema.define(version: 20141029220031) do
 
   add_index "messages", ["receiver_id"], name: "index_messages_on_receiver_id", using: :btree
   add_index "messages", ["sender_id"], name: "index_messages_on_sender_id", using: :btree
+
+  create_table "pictures", force: true do |t|
+    t.integer  "listing_id"
+    t.integer  "ord",              default: 1
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "pic_file_name"
+    t.string   "pic_content_type"
+    t.integer  "pic_file_size"
+    t.datetime "pic_updated_at"
+  end
 
   create_table "reservations", force: true do |t|
     t.integer  "chair_id",                       null: false

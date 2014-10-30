@@ -1,17 +1,20 @@
-<h1> Welcome, <%= current_user.name %>!</h1>
-
+<div class="dashboard-item dash-listings">
 <h2>Listings</h2>
   <% current_user.listings.each do |chair| %>
     <li><a href="<%= listing_url(chair) %>"><%= chair.name %></a> - 
       <%= chair.description %>  <%= "PENDING RESERVATIONS!" if chair.pending_reservations?%> </li>
   <% end %>
+</div>
 
+<div class="dashboard-item dash-messages">
 <h2>Messages</h2>
     <% current_user.received_messages.each do |message| %>
     <% message.read ? read = "Read" : read = "Unread"%>
     <li><a href="<%= message_url(message)%>"><%= message.subject %></a> from <%= message.author.name %> - <%= read %></li>
     <% end %>
-    
+</div>
+
+<div class="dashboard-item dash-reservations">
 <h2>Reservations</h2>
   <% current_user.reservations.each do |res| %>
     <% res_price = (res.chair.price * (res.end_date - res.start_date)) / 3600 %>
@@ -19,6 +22,9 @@
     <% stop = res.end_date.strftime("%m/%d/%Y %H:%M") %>
     <li>From <%= start %> to <%= stop %> for $<%=number_with_precision(res_price, :precision => 2) %> and status is <%= res.status %> <%= (button_to "Leave Review", new_reservation_review_url(res), method: :get) if res.review_ready? %> 
       <% end %>
+</div>
+
+<div class="dashboard-item dash-reviews">
 <h2>Reviews</h2>
   <h4>Written</h4>
     <% current_user.written_reviews.each do |review| %>
@@ -28,3 +34,4 @@
   <% current_user.received_reviews.each do |review| %>
     <li><%= review.reservation.chair.name %> - <%= review.title %></li>
   <% end %>
+</div>

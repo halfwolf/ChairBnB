@@ -1,3 +1,12 @@
 <% @listings.each do |listing| %>
-  <div class="listing-box"><div class="listing-primary-image"></div><li><%= link_to listing.name, listing_url(listing) %> - $<%= number_with_precision(listing.price, :precision => 2)%></li></div>
+  <div class="listing-box">
+    <div class="listing-primary-image">
+      <%= image_tag listing.pictures.first.pic.url(:icon), class: "listing-pic"%>
+    </div> 
+    <%= link_to listing.name, listing_url(listing), class: "listing-box-title" %>
+    <div class="listing-box-price">$<%= number_with_precision(listing.price, :precision => 2)%> / hour</div>
+    <div class="listing-box-location"> <%= listing.full_address %></div>
+    <div class="listing-review-score">  <%= listing.average_reviews %></div>
+
+  </div>
 <% end %>

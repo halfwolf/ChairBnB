@@ -1,30 +1,113 @@
-<form class="new-listing" action="<%= listings_url %>" method="POST">
+<form class="new-listing" action="<%= listings_url %>" enctype="multipart/form-data" method="POST">
   <input
     type="hidden"
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
+    
+  <div class="listing-input input-room-type">
+    <label for="room_type">Room Type</label>
+    <select name="listing[room_type]">
+      <option 
+        value="living" 
+        <%= "selected" if @listing.room_type == "living" %>>Living Room</option>
+      <option 
+        value="office" 
+        <%= "selected" if @listing.room_type == "office" %>>Office</option>
+      <option 
+        value="dining" 
+        <%= "selected" if @listing.room_type == "dining" %>>Dining Room</option>
+      <option 
+        value="hallway" 
+        <%= "selected" if @listing.room_type == "hallway" %>>Hallway</option>
+      <option 
+        value="outside" 
+        <%= "selected" if @listing.room_type == "outside" %>>Outside</option>
+      <option 
+        value="other" 
+        <%= "selected" if @listing.room_type == "other" %>>Other</option>
+    </select>
+  </div>
+    
+ <div class="listing-input input-chair-type"> 
+  <label for="chair_type">Chair Type</label>
+  <select name="listing[chair_type]">
+    <option 
+      value="couch" 
+      <%= "selected" if @listing.chair_type == "couch" %>>Couch</option>
+    <option 
+      value="office chair"
+      <%= "selected" if @listing.chair_type == "office chair" %>>Office Chair</option>
+    <option 
+      value="throne"
+      <%= "selected" if @listing.chair_type == "throne" %>>Throne</option>
+    <option 
+      value="outdoor"
+      <%= "selected" if @listing.chair_type == "outdoor" %>>Outdoor</option>
+    <option 
+      value="rocking"
+      <%= "selected" if @listing.chair_type == "rocking" %>>Rocking</option>
+    <option 
+      value="other"
+      <%= "selected" if @listing.chair_type == "other" %>>Other</option>
+  </select>
+</div>
 
-  <label for="name">Name<label>
+ <div class="listing-input input-seats">
+  <label for="seats">Seats</label>
+  <select name="listing[seats]">
+    <option value="1" <%= "selected" if @listing.seats == 1 %>>1</option>
+    <option value="2" <%= "selected" if @listing.seats == 2 %>>2</option>
+    <option value="3" <%= "selected" if @listing.seats == 3 %>>3</option>
+    <option value="4" <%= "selected" if @listing.seats == 4 %>>4</option>
+  </select>
+</div>
+
+ <div class="listing-input input-street">
+  <label for="street">Street Address<label>
   <input
-    id="name"
-    name="listing[name]"
+    id="street"
+    name="listing[street]"
     type="text"
-    value="<%= @listing.name %>">
-
-  <label for="description">Description<label>
-  <textarea
-    id="description"
-    name="listing[description]"
-    value="<%= @listing.description %>">
-  </textarea>
-
-  <label for="location">Location<label>
+    value="<%= @listing.street %>">
+  </div>
+  
+  <div class="listing-input input-city">
+  <label for="city">City<label>
   <input
-    id="location"
-    name="listing[location]"
+    id="city"
+    name="listing[city]"
     type="text"
-    value="<%= @listing.location %>">
-
+    value="<%= @listing.city %>">
+  </div>
+  
+  <div class="listing-input input-zip-code">
+  <label for="zip_code">Zip Code<label>
+  <input
+    id="zip_code"
+    name="listing[zip_code]"
+    type="text"
+    value="<%= @listing.zip_code %>">
+  </div>
+  
+   <div class="listing-input input-name">    
+    <label for="name">Name<label>
+    <input
+      id="name"
+      name="listing[name]"
+      type="text"
+      value="<%= @listing.name %>">
+    </div>
+    
+  <div class="listing-input input-description">
+    <label for="description">Description<label>
+    <textarea
+      id="description"
+      name="listing[description]"
+      value="<%= @listing.description %>">
+    </textarea>
+  </div>
+    
+<div class="listing-input input-price">
   <label for="price">Price<label>
   <input
     id="price"
@@ -34,6 +117,10 @@
     max="9999"
     step="0.01"
     value="<%= @listing.price %>">
+  </div>
+  
+  <h3>Add Picture</h3>
+  <input type="file" id="photo_image" name="picture[pic]">
 
     <button>Add Listing</button>
 
