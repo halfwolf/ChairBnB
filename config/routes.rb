@@ -17,6 +17,14 @@ Rails.application.routes.draw do
   end
 
 
+  namespace :api do
+    get 'dashboard' => 'dashboard', as: "dashboard", defaults: {format: :json} 
+    resources :messages, only: [:index, :show, :create], defaults: {format: :json} 
+    resources :reviews, only: [:index, :show, :create], defaults: {format: :json} 
+    resources :listings, only: [:index, :show], defaults: {format: :json} 
+    resources :reservations, only: [:index, :show], defaults: {format: :json} 
+  end
+
   root 'static#home'
   
   get 'dashboard' => 'static#dashboard', as: "dashboard"

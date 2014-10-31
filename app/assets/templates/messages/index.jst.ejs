@@ -1,0 +1,10 @@
+<div class="dashboard-item dash-listings">
+  
+  <h2>Messages</h2>  
+  <% messages.each(function(message) {%>
+    <li><a href="/messages/<%= message.escape("id") %>"><%= message.escape("subject") %></a> -
+      <%= message.escape("author") %></li>
+  <% }); %>
+</div>
+
+<a href="#/">Back</a>

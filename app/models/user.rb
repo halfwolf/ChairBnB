@@ -69,5 +69,12 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
+  
+  def all_messages
+    Message.where("sender_id = :self_id OR receiver_id = :self_id", self_id: self.id)
+  end
+  
+  def all_reviews
+  end
 
 end

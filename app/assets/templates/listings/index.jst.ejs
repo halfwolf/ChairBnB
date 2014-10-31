@@ -1,0 +1,11 @@
+<div class="dashboard-item dash-listings">
+  
+  <h2>Listings</h2>  
+  <% listings.each(function(chair) {%>
+    <li><a href="/listings/<%= chair.escape("id") %>"><%= chair.escape("name") %></a> -
+      <%= chair.escape("description") %></li>
+  <% }); %>
+</div>
+
+<a href="#/">Back</a>
+

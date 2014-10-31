@@ -1,7 +1,11 @@
-<div class="dashboard-item dash-listings">
+<script>
+  $(ChairBnB.initialize);
+</script>
+
+<!--<div class="dashboard-item dash-listings">
 <h2>Listings</h2>
   <% current_user.listings.each do |chair| %>
-    <li><a href="<%= listing_url(chair) %>"><%= chair.name %></a> - 
+    <li><a href="<%= listing_url(chair) %>"><%= chair.name %></a> -
       <%= chair.description %>  <%= "PENDING RESERVATIONS!" if chair.pending_reservations?%> </li>
   <% end %>
 </div>
@@ -20,7 +24,7 @@
     <% res_price = (res.chair.price * (res.end_date - res.start_date)) / 3600 %>
     <% start = res.start_date.strftime("%m/%d/%Y %H:%M") %>
     <% stop = res.end_date.strftime("%m/%d/%Y %H:%M") %>
-    <li>From <%= start %> to <%= stop %> for $<%=number_with_precision(res_price, :precision => 2) %> and status is <%= res.status %> <%= (button_to "Leave Review", new_reservation_review_url(res), method: :get) if res.review_ready? %> 
+    <li>From <%= start %> to <%= stop %> for $<%=number_with_precision(res_price, :precision => 2) %> and status is <%= res.status %> <%= (button_to "Leave Review", new_reservation_review_url(res), method: :get) if res.review_ready? %>
       <% end %>
 </div>
 
@@ -34,4 +38,4 @@
   <% current_user.received_reviews.each do |review| %>
     <li><%= review.reservation.chair.name %> - <%= review.title %></li>
   <% end %>
-</div>
+</div> -->

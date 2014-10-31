@@ -82,16 +82,17 @@ a.addchair-header {
 
 div.footbar {
   width: 100%;
-  height: 25px;
-  background: #2B2D2E;
   min-width: 600px;
+  height: 40px;
+  background: white;
+  border-top: 1px solid #E4E6E3;
 }
 
 div.footbar > a {
   float: right;
   margin: 5px;
   text-decoration: none;
-  color: white;
+  color: #565A5C;
 }
 
 

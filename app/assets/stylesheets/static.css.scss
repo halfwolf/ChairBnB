@@ -5,12 +5,11 @@ div.welcome-page {
   display: block;
   margin: 10px;
   margin: auto;
-  background-image: url(/assets/main_chair1.jpg);
-    background-size: cover;
+  background-image: image-url('main_chair1.jpg');
+  background-size: cover;
   background-repeat: no-repeat ;
   height: 650px;
   background-position: 0px 0px, center;
-
   text-align: center;
-  min-width: 600px;
+  min-width: 400px;
 }
