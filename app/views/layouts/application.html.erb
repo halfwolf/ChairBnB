@@ -14,10 +14,14 @@
   </ul>
 <% end %>
 <body>
-<div class=main-navbar>
-      <%= button_to "Logout", session_url, method: :delete, class: "logout-header" %>
-  <a href="/"><img src="<%= asset_path('chairbnb_icon.png') %>" class="header-icon"></img></a>
+  
+<div class=main-navbar>    
+  <a href="/">
+    <img src="<%= asset_path('chairbnb_icon.png') %>" class="header-icon"></img>
+  </a>
+
   <% if current_user %>
+    <%= button_to "Logout", session_url, method: :delete, class: "logout-header" %>
     <a href="<%= dashboard_url %>" class="dashboard-header">Dashboard</a>
     <div class="username-header">Hi, <%= current_user.name %>!</div>
     <a href="<%= new_listing_url %>" class="addchair-header">Add Chair</a>

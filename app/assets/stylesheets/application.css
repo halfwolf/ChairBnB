@@ -40,50 +40,92 @@ clear: both;
 }
 
 div.content {
-  min-height: 500px;
+  min-height: 641px;
 }
+
+
 div.main-navbar {
   width: 100%;
   min-width: 600px;
-  height: 30px;
-  background: lightgrey;
+  height: 40px;
+  background: white;
+  border-bottom: 1px solid #E4E6E3;
 }
 
 div.main-navbar > .button_to {
   float: right;
   margin: 7px 10px;
+  font-size: 15px;
+  font-weight: bold;
 }
-div.username-header, a.dashboard-header, a.addchair-header,  a.login-header {
+
+
+div.username-header, a.dashboard-header,  a.login-header {
   float: right;
   margin: 10px 10px 5px;
-  font-size: 13px;
+  font-size: 15px;
+  font-weight: bold;
+  color: #565A5C;
+}
+
+a.addchair-header {
+  float: right;
+  margin: 5px 10px 5px;
+  font-size: 15px;
+  font-weight: bold;
+  background: #037A87;
+  border-radius: 3px;
+  padding: 5px 10px;
+  color: white;
 }
 
 
 div.footbar {
   width: 100%;
   height: 25px;
-  background: lightgrey;
-    min-width: 600px;
+  background: #2B2D2E;
+  min-width: 600px;
 }
 
 div.footbar > a {
   float: right;
   margin: 5px;
   text-decoration: none;
+  color: white;
 }
 
-div.welcome-page {
-  display: block;
-  margin: 10px;
-  margin: auto;
 
-  height: 600px;
-  text-align: center;
-}
 .welcome-page > h1 {
-  margin: 150px;
+  padding: 250px 125px 0;
+  font-size: 75px;
+  font-weight: bold;
+  color: white;
+  opacity: .9;
 }
+
+div.welcome-listings-link {
+  display: block;
+  background: grey;
+  margin: 25px auto 250px;
+  width: 150px;
+  font-size: 15px;
+  font-weight: bold;
+  background: lightgrey;
+  border-radius: 3px;
+  padding: 10px 15px 10px;
+  opacity: .5;
+}
+.welcome-page > a {
+  color: white;
+  opacity: 1;
+}
+
+.welcome-listings-link:hover {
+  background: black;
+}
+
+
+
 
 div.listing-box {
   height: 125px;
@@ -103,14 +145,16 @@ div.listing-box > li{
 }
 
 img.header-icon {
-  height: 25px;
+  height: 35px;
+  margin: 2px 5px;
+  float: left;
 }
 
 div.dashboard-item {
   height: 200px;
   width: 600px;
   margin: 10px auto;
-  border: 3px solid grey;
+  borderborder: 3px solid grey;
 }
 
 div.dashboard-item > h2 {
@@ -148,12 +192,27 @@ div.listing-show {
   width: 800px;
   display: block;
 }
+
 div.listing-show-info {
   width: 600px;
-  padding: 10px;
+  padding: 0 30px;
   float: left;
   display: block;
-  
+  color: #565A5C;
+  border-bottom: 1px solid #DCE0E0;
+}
+
+div.listing-show-attributes {
+ width: 600px; 
+ padding: 10px;
+ float: left;
+ display: block;
+ color: #82888A;
+}
+
+div.listing-show-attributes > li {
+  float: left;
+  padding: 10px;
 }
 
 img.profile-pic {
@@ -167,7 +226,6 @@ div.profile-pic-border {
   height: 100px;
   width: 100px;
   overflow: hidden;
-  border: 2px solid black;
 }
 
 div.personal-info {
@@ -175,19 +233,36 @@ div.personal-info {
   float: left;
 }
 
+div.owner-info > h4 {
+  color: #8f9596;
+}
+
 div.listing-utilities {
   display: block;
-  border-top: 1px lightgrey;
-  width: 200px;
+  border: 1px lightgrey;
+  width: 220px;
   position: absolute;
-  top: 50px;
+  top: 564px;
   right: 20px;
+  background: white;
+  border: 2px solid #DCE0E0;
 }
 
 div.owner-info {
-  width: 150px;
+  width: 100px;
   display: block;
   float: left;
+  margin: 0 0 0 100px;
+}
+
+div.owner-info > h4 {
+    text-align: center;
+}
+
+div.listing-quick-info {
+  display: block;
+  bottom-border: 2px solid grey;
+  height: 120px;
 }
 
 img.listing-pic {
@@ -195,7 +270,31 @@ img.listing-pic {
 }
 
 div.listing-pictures {
-  margin: auto;
+  margin: 10px auto;
   text-align: center;
-  
+  border-bottom: 1px solid #E4E6E3;
 }
+
+div.listing-show-info > h1 {
+  font-size: 30px;
+  padding: 5px 0 10px;
+}
+
+div.sign-form {
+  display: block;
+  margin: 100px auto;
+  width: 250px;
+  color: #565A5C;
+}
+
+div.sign-input {
+  padding: 5px;
+}
+
+form.new-user > button {
+  border: 1px solid grey;
+  padding: 3px;
+  border-radius: 5px;
+  color: #565A5C;
+}
+

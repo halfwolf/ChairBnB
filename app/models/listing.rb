@@ -18,8 +18,12 @@ class Listing < ActiveRecord::Base
   has_many :reviews, through: :reservations, source: :review
     
   def pending_reservations?
-    self.reservations.where("status = 'PENDING'").length > 0
+    self.reservations.where("status = 'PENDING' AND end_date > :now", now: DateTime.now).length > 0
   end  
+  
+  def valid_reservations
+    self.reservations.where("(status = 'PENDING' OR status = 'APPROVED') AND end_date > :now", now: DateTime.now)
+  end
   
   def fixed_zipcode
     zip_string = self.zip_code.to_s

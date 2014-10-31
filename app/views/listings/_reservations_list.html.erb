@@ -5,7 +5,10 @@
     <% res_price = (res.chair.price * (res.end_date - res.start_date)) / 3600 %>
     <% start = res.start_date.strftime("%m/%d/%Y %H:%M") %>
     <% stop = res.end_date.strftime("%m/%d/%Y %H:%M") %>
-    <li>From <%= start %> to <%= stop %> for $<%=number_with_precision(res_price, :precision => 2) %> and status is <%= res.status %><%= button_to "Approve", approve_reservation_url(res)%>
-    <%= button_to "Deny", deny_reservation_url(res)%> </li>
+    <li>From <%= start %> to <%= stop %> for $<%=number_with_precision(res_price, :precision => 2) %> and status is <%= res.status %>
+    <% unless res.status == "APPROVED" %>
+      <%= button_to "Approve", approve_reservation_url(res)%>
+      <%= button_to "Deny", deny_reservation_url(res)%> </li>
+      <% end %>
   <% end %>
 </div>
