@@ -18,6 +18,7 @@ class ReservationsController < ApplicationController
 
   def create
     @reservation = current_user.reservations.new(reservation_params)
+    @reservation.price = Listing.find(params[:reservation][:chair_id]).price
     unless @reservation.save
       flash.now[:errors] = @reservation.errors.full_messages
     else

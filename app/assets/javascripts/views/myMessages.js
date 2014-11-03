@@ -1,6 +1,6 @@
-ChairBnB.Views.MessagesIndex = Backbone.View.extend({
+ChairBnB.Views.MyMessages = Backbone.View.extend({
 
-  template: JST['messages/index'],
+  template: JST['messages/mymessages'],
   
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render)

@@ -1,6 +1,6 @@
-ChairBnB.Views.ListingsIndex = Backbone.View.extend({
+ChairBnB.Views.MyListings = Backbone.View.extend({
 
-  template: JST['listings/index'],
+  template: JST['listings/mylistings'],
   
   initialize: function() {
     this.listenTo(this.collection, "sync", this.render)

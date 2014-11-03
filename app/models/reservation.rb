@@ -1,6 +1,6 @@
 class Reservation < ActiveRecord::Base
   
-  validates :chair_id, :start_date, :end_date, :sitter_id, :status, presence: true
+  validates :chair_id, :start_date, :end_date, :sitter_id, :price, :status, presence: true
   
   belongs_to( :sitter,
     class_name: "User",

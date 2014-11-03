@@ -1,0 +1,10 @@
+<div class="dashboard-item dash-reservations">
+<h2>Reservations</h2>
+
+  <% reservations.each(function(res) { %>
+    <li><%= res.formattedDate(res.attributes.start_date) %> to <%= res.formattedDate(res.attributes.end_date) %> for $<%= res.price() %></li>
+  <% }); %>
+    
+</div>
+
+
