@@ -53,7 +53,15 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
     
   },
   
-  
+  myReviews: function() {
+    ChairBnB.Models.user.reviews().fetch();
+    
+    var view = new ChairBnB.Views.MyReviews({
+      collection: ChairBnB.Models.user.reviews()
+    })
+    
+    this._swapView(view);
+  },
   
   
   _swapView: function(view) {

@@ -1,3 +1,66 @@
 // Place all the styles related to the Listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+div.listings {
+  width: 800px;
+  margin: auto;
+  display: block;
+  
+}
+
+
+div.listing-box {
+  display: block;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  height: 100px;
+}
+
+img.listing-pic {
+  display: block;
+  float: left;
+  height: 90px;
+  width: 90px;
+  border: 1px solid #cacaca;
+  padding: 4px;
+}
+
+img.host-pic {
+  display: block;
+  float: left;
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 5px 10px;
+  
+}
+
+div.listing-info {
+  float: left;
+  display: block;
+  padding: 5px ;
+}
+
+div.listing-box-price > .price {
+  color: black;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+div.listing-box-price {
+  float: right;
+  display: block;
+  color: #848484;
+  text-align: right ;
+  padding: 5px;
+}
+
+a.listing-box-title {
+  display: block;
+  
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3A99C7;
+}

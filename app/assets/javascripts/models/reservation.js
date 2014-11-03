@@ -15,9 +15,6 @@ ChairBnB.Models.Reservation = Backbone.Model.extend({
     min = (min < 10 ? "0" + min : min)
     var period = (date.getHours > 12 ? "AM" : "PM")
     return hour + ":" + min + " " + period + " on " + dateString
-  },
-  
-  endDate: function() {
-    
   }
+  
 })

@@ -1,11 +1,28 @@
-<div class="dashboard-item dash-listings">
-  
-  <h2>Listings</h2>  
-  <% listings.each(function(chair) {%>
-    <li><a href="/listings/<%= chair.escape("id") %>"><%= chair.escape("name") %></a> -
-      <%= chair.escape("description") %></li>
-  <% }); %>
+<div class="dashboard-menu group">
+  <div class="dashboard-item dash-menu-wrapper">
+    <li><a href="#/mylistings" class="active">Listings</a></li>
+    <li><a href="#/mymessages">Messages</a></li>
+    <li><a href="#/myreservations">Reservations</a></li>
+    <li><a href="#/myreviews">Reviews</a></li>
+  </div>
 </div>
 
-<a href="#/">Back</a>
 
+<div class="dashboard-item dash-listings">
+  <div class="listings group">
+  <% listings.each(function(chair) {%>
+  <li>
+     <div class="listing-box group">
+           <img src="<%= chair.escape("listing_pic") %>" class="listing-pic">
+         <div class="listing-info">
+           <a href="listings/<%= chair.escape("id") %>" class="listing-box-title"><%= chair.escape("name") %></a>
+           <div class="listing-box-location"> <%= chair.escape("address") %></div>
+           <div class="listing-review-score">  &#9734;</div>
+         </div>
+
+         <div class="listing-box-price"><div class="price">$<%= chair.escape("price") %></div>Per hour</div>
+         
+     </div>
+    </li>
+  <% }); %>
+</div>

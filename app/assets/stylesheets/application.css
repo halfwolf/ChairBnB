@@ -125,14 +125,6 @@ div.welcome-listings-link {
   background: black;
 }
 
-
-
-
-div.listing-box {
-  height: 125px;
-  display: block;
-}
-
 div.listing-primary-image {
   display: block;
   float: left;
@@ -140,10 +132,17 @@ div.listing-primary-image {
   width: 100px;
 }
 
-div.listing-box > li{
-  float: left;
-  display: block;
+div.listing-review-score {
+  display: bloc;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 0;
+  border: 0;
+  margin: 0;
+  line-height: 15px;
+  
 }
+
 
 img.header-icon {
   height: 35px;
@@ -152,8 +151,7 @@ img.header-icon {
 }
 
 div.dashboard-item {
-  height: 200px;
-  width: 600px;
+  width: 800px;
   margin: 10px auto;
   borderborder: 3px solid grey;
 }
@@ -299,3 +297,35 @@ form.new-user > button {
   color: #565A5C;
 }
 
+/* Dashboard Menubar */
+
+div.dashboard-menu {
+  background: #565A5C;
+  display: block;
+}
+
+div.dash-menu-wrapper {
+  width: 800px;
+  display: block;
+  margin: auto;
+}
+
+div.dash-menu-wrapper > li {
+  float: left;
+}
+
+div.dash-menu-wrapper > li > a {
+  color: #CACCCD;
+  padding: 5px 0;
+  display: block;
+  font-size: 12px;
+  
+}
+div.dash-menu-wrapper > li > a.active{
+  color: white;
+  padding: 5px 0 3px;
+  border-bottom: 2px solid white;
+}
+div.dash-menu-wrapper > li > a:hover{
+    color: white;
+}

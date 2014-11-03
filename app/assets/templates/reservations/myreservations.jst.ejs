@@ -1,5 +1,13 @@
+<div class="dashboard-menu group">
+  <div class="dashboard-item dash-menu-wrapper">
+    <li><a href="#/mylistings">Listings</a></li>
+    <li><a href="#/mymessages">Messages</a></li>
+    <li><a href="#/myreservations" class="active">Reservations</a></li>
+    <li><a href="#/myreviews">Reviews</a></li>
+  </div>
+</div>
+
 <div class="dashboard-item dash-reservations">
-<h2>Reservations</h2>
 
   <% reservations.each(function(res) { %>
     <li><%= res.formattedDate(res.attributes.start_date) %> to <%= res.formattedDate(res.attributes.end_date) %> for $<%= res.price() %></li>

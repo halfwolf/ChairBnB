@@ -1,1 +1,12 @@
-json.array! @listings, :id, :name, :description, :owner_id, :price, :room_type, :chair_type, :street, :city, :zip_code, :seats
+json.array! @listings do |chair|
+  json.id           chair.id
+  json.name         chair.name
+  json.description  chair.description
+  json.owner_id     chair.owner_id
+  json.price        chair.price
+  json.room_type    chair.room_type
+  json.chair_type   chair.chair_type
+  json.address      chair.full_address
+  json.seats        chair.seats
+  json.listing_pic  chair.pictures.first.pic.url(:icon)
+end

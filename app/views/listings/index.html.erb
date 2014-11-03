@@ -1,12 +1,23 @@
+<div class="listings group">
 <% @listings.each do |listing| %>
-  <div class="listing-box">
-    <div class="listing-primary-image">
-      <%= image_tag listing.pictures.first.pic.url(:icon), class: "listing-pic"%>
-    </div> 
-    <%= link_to listing.name, listing_url(listing), class: "listing-box-title" %>
-    <div class="listing-box-price">$<%= number_with_precision(listing.price, :precision => 2)%> / hour</div>
-    <div class="listing-box-location"> <%= listing.full_address %></div>
-    <div class="listing-review-score">  <%= listing.average_reviews %></div>
+<li>
+  <div class="listing-box group">
+    
+      <%= image_tag listing.pictures.first.pic.url(:icon),
+        class: "listing-pic"%>
+      <%= image_tag listing.owner.avatar.url(:icon), 
+         class: "host-pic"%>    
+    <div class="listing-info">
+      <%= link_to listing.name, 
+        listing_url(listing), 
+        class: "listing-box-title" %>
+      <div class="listing-box-location"> <%= listing.full_address %></div>
+      <div class="listing-review-score">  &#9734;</div>
+    </div>
+    
+    <div class="listing-box-price"><div class="price">$<%= number_with_precision(listing.price, :precision => 2)%></div>Per hour</div>
 
   </div>
+</li>
 <% end %>
+</div>
