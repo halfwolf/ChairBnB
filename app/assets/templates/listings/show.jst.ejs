@@ -1,0 +1,39 @@
+<div class-"listing-show">
+  <div class="listing-pictures">
+    <img src="<%= listing.escape("listing_pic") %>">
+  </div>
+ 
+ <div class="listing-quick-info">
+  
+  <div class="owner-info">
+    
+    <div class="profile-pic-border group">
+      <img src="<%= listing.escape("host_pic") %>" class="profile-pic">
+    </div>
+   
+   <h4> <%= listing.escape("owner") %></h4>
+ </div> 
+ 
+  <div class="listing-show-info">
+    <h1><%= listing.escape("name") %></h1>
+    <h4><%= listing.escape("full_address") %></h4>
+    <h4><%= listing.escape("average_reviews") %></h4>
+  </div>
+
+</div>
+  
+  <div class="listing-show-attributes">
+    <li>Chair Type: <%= listing.escape("chair_type").toUpperCase() %></li>
+    <li>Room: <%= listing.escape("room_type").toUpperCase() %></li>
+    <li>Seats <%= listing.escape("seats") %></li>
+  </div>
+  
+  <div class="listing-about-host">
+    
+  </div>
+</div>
+
+
+</div>
+
+

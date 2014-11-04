@@ -1,12 +1,13 @@
 ChairBnB.Routers.Router = Backbone.Router.extend({
   initialize: function() {
-    this.$rootEl = $('.content')
+    this.$rootEl = $('.content');
+    this.listings = new ChairBnB.Collections.Listings();
   },
   
   
   routes: {
     'listings': 'listingsIndex',
-    'listing/:id': 'listingShow',
+    'listings/:id': 'listingShow',
     'dashboard': 'dashboardShow',
     'mylistings': 'myListings',
     'mymessages': 'myMessages',
@@ -15,16 +16,16 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
   },
   
   listingsIndex: function() {
-    var listings = new ChairBnB.Collections.Listings();
-    listings.fetch();
+    this.listings.fetch();
     var view = new ChairBnB.Views.ListingsIndex({
-      collection: listings
+      collection: this.listings
     })
     this._swapView(view)
   },
   
   listingShow: function(id) {
-    var chair = ChairBnB.Model.Listing.getOrFetch(id);
+    var chair = this.listings.getOrFetch(id);
+    
     var view = new ChairBnB.Views.ListingShow({
       model: chair
     })
