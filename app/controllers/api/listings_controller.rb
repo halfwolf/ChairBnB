@@ -1,8 +1,13 @@
 class Api::ListingsController < ApplicationController
 
-  def  index
-    @listings = current_user.listings
+  def index
+    @listings = Listing.all
     render :index
+  end
+  
+  def myListings
+    @listings = current_user.listings
+    render :myListings
   end
   
   def show

@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :show, :create], defaults: {format: :json} 
     resources :listings, only: [:index, :show], defaults: {format: :json} 
     resources :reservations, only: [:index, :show], defaults: {format: :json} 
+    
+    get 'myListings' => 'listings#myListings', as: "myListings", defaults: {format: :json} 
   end
 
   root 'static#home'

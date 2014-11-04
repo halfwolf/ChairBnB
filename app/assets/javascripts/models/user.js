@@ -9,7 +9,7 @@ ChairBnB.Models.User = Backbone.Model.extend({
   
   listings: function() {
     this._listings = this._listings ||
-      new ChairBnB.Collections.Listings([], { user: this });
+      new ChairBnB.Collections.myListings([], { user: this });
       return this._listings
   },
 
