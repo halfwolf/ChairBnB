@@ -13,9 +13,9 @@
   <% listings.each(function(chair) {%>
   <li>
      <div class="listing-box group">
-           <img src="<%= chair.escape("listing_pic") %>" class="listing-pic">
+           <img src="<%= chair.escape("listing_icon") %>" class="listing-pic">
          <div class="listing-info">
-           <a href="listings/<%= chair.escape("id") %>" class="listing-box-title"><%= chair.escape("name") %></a>
+           <a href="#/listings/<%= chair.escape("id") %>" class="listing-box-title"><%= chair.escape("name") %></a>
            <div class="listing-box-location"> <%= chair.escape("address") %></div>
            <div class="listing-review-score">  &#9734;</div>
          </div>

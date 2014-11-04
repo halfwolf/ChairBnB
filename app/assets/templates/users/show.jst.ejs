@@ -1,0 +1,14 @@
+<div class="profile-pic-border group">
+  <img src="<%= user.escape("user_icon") %>" class="profile-pic">
+</div>
+
+<div class="personal-info group">
+  <h1><%= user.escape("name") %></h1>
+  <h3><%= user.escape("email") %></h3>
+  <p><%= user.escape("bio") %></p>
+</div>
+<ul>
+  <% user.listings().each(function(chair) { %>
+    <li><a href="#/listings/<%= chair.escape("id") %>"><%= chair.escape("name") %> - <%= chair.escape("zip_code") %> </li>
+  <% }); %>
+</ul>

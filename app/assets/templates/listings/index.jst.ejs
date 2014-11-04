@@ -3,7 +3,7 @@
   <% listings.each(function(chair) {%>
   <li>
      <div class="listing-box group">
-           <img src="<%= chair.escape("listing_pic") %>" class="listing-pic">
+           <img src="<%= chair.escape("listing_icon") %>" class="listing-pic">
            <img src="<%= chair.escape("host_pic") %>" class="host-pic">
          <div class="listing-info">
            <a href="#/listings/<%= chair.escape("id") %>" class="listing-box-title"><%= chair.escape("name") %></a>

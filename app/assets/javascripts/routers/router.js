@@ -7,7 +7,9 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
   
   routes: {
     'listings': 'listingsIndex',
+    'listings/new': 'listingNew',
     'listings/:id': 'listingShow',
+    'users/:id': 'userShow',
     'dashboard': 'dashboardShow',
     'mylistings': 'myListings',
     'mymessages': 'myMessages',
@@ -33,39 +35,59 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
     this._swapView(view)
   },
   
+  listingNew: function() {
+    var chair = new ChairBnB.Models.Listing()
+    var view = new ChairBnB.Views.ListingForm({
+      model: chair,
+      collection: ChairBnB.Models.me.listings()
+    });
+    this._swapView(view);
+  },
+  
+  userShow: function(id) {
+    
+    var user = new ChairBnB.Collections.Users().getOrFetch(id)
+    
+    var view = new ChairBnB.Views.UserShow({
+      model: user
+    })
+    
+    this._swapView(view)
+  },
+  
   dashboardShow: function() {
-    ChairBnB.Models.user.fetch();
+    ChairBnB.Models.me.fetch();
     var view = new ChairBnB.Views.DashboardShow({
-      model: ChairBnB.Models.user
+      model: ChairBnB.Models.me
     });
     
     this._swapView(view);    
   },
   
   myListings: function() {
-    ChairBnB.Models.user.listings().fetch();
+    ChairBnB.Models.me.listings().fetch();
     var view = new ChairBnB.Views.MyListings({
-      collection: ChairBnB.Models.user.listings() 
+      collection: ChairBnB.Models.me.listings() 
     })
     
     this._swapView(view);
   },
   
   myMessages: function() {
-    ChairBnB.Models.user.messages().fetch();
+    ChairBnB.Models.me.messages().fetch();
 
     var view = new ChairBnB.Views.MyMessages({
-      collection: ChairBnB.Models.user.messages() 
+      collection: ChairBnB.Models.me.messages() 
     })
     
     this._swapView(view);
   },
   
   myReservations: function() {
-    ChairBnB.Models.user.reservations().fetch();
+    ChairBnB.Models.me.reservations().fetch();
     
     var view = new ChairBnB.Views.MyReservations({
-      collection: ChairBnB.Models.user.reservations()
+      collection: ChairBnB.Models.me.reservations()
     })
     
     this._swapView(view);
@@ -73,10 +95,10 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
   },
   
   myReviews: function() {
-    ChairBnB.Models.user.reviews().fetch();
+    ChairBnB.Models.me.reviews().fetch();
     
     var view = new ChairBnB.Views.MyReviews({
-      collection: ChairBnB.Models.user.reviews()
+      collection: ChairBnB.Models.me.reviews()
     })
     
     this._swapView(view);

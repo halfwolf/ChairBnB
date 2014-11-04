@@ -80,7 +80,7 @@ a.addchair-header {
 }
 
 
-div.footbar {
+footer {
   width: 100%;
   min-width: 600px;
   height: 40px;
@@ -88,7 +88,7 @@ div.footbar {
   border-top: 1px solid #E4E6E3;
 }
 
-div.footbar > a {
+footer > a {
   float: right;
   margin: 5px;
   text-decoration: none;

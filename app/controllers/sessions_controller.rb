@@ -14,7 +14,7 @@ class SessionsController < ApplicationController
       render :new
     else
       login_user!(@user)
-      redirect_to dashboard_url
+      redirect_to "#/dashboard"
     end
   end
 

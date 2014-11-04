@@ -10,5 +10,5 @@
   json.average_reviews @listing.average_reviews
   json.seats         @listing.seats
   json.owner         @listing.owner.name
-  json.listing_pic   @listing.pictures.first.pic(:original)
+  json.listing_pic   @listing.pictures.first.pic
   json.host_pic      @listing.owner.avatar.url(:icon)

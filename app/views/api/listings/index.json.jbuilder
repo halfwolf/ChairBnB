@@ -8,6 +8,7 @@ json.array! @listings do |chair|
   json.chair_type   chair.chair_type
   json.address      chair.full_address
   json.seats        chair.seats
-  json.listing_pic  chair.pictures.first.pic.url(:icon)
+  json.listing_icon  chair.pictures.first.pic.url(:icon)
+  json.listing_pic  chair.pictures.first.pic.url
   json.host_pic     chair.owner.avatar.url(:icon)
 end

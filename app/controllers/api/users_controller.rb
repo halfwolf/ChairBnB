@@ -1,10 +1,8 @@
-class Api::DashboardController < ApplicationController
-  def dashboard
-    render :json => current_user, include: [
-        :listings, :reservations, 
-        :sent_messages, :received_messages,
-        :received_reviews]
+class Api::UsersController < ApplicationController
+
+  def show
+    @user = User.find(params[:id])
+    render :show
   end
-  
   
 end

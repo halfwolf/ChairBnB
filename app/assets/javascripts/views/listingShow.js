@@ -2,7 +2,7 @@ ChairBnB.Views.ListingShow = Backbone.View.extend({
   template: JST['listings/show'],
   
   initialize: function() {
-    this.listenTo(this.model, "sync", this.render)
+    this.listenTo(this.model, "sync change request", this.render)
   },
   
   render: function() {

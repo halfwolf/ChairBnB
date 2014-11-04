@@ -73,8 +73,9 @@ class User < ActiveRecord::Base
   def all_messages
     Message.where("sender_id = :self_id OR receiver_id = :self_id", self_id: self.id)
   end
-  
-  def all_reviews
+
+  def messages_with(id)
+    self.all_messages.where("sender_id = :id OR receiver_id = :id", id: id)
   end
 
 end

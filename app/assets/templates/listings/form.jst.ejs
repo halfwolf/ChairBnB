@@ -1,0 +1,113 @@
+<form class="new-listing" enctype="multipart/form-data">  
+  <div class="listing-input input-room-type">
+    <label for="room_type">Room Type</label>
+    <select name="listing[room_type]" id="room_type">
+      <option 
+        value="living">Living Room</option>
+      <option 
+        value="office">Office</option>
+      <option 
+        value="dining">Dining Room</option>
+      <option 
+        value="hallway">Hallway</option>
+      <option 
+        value="outside">Outside</option>
+      <option 
+        value="other">Other</option>
+    </select>
+  </div>
+    
+ <div class="listing-input input-chair-type"> 
+  <label for="chair_type">Chair Type</label>
+  <select name="listing[chair_type]" id="chair_type">
+    <option 
+      value="couch">Couch</option>
+    <option 
+      value="office chair">Office Chair</option>
+    <option 
+      value="throne">Throne</option>
+    <option 
+      value="outdoor">Outdoor</option>
+    <option 
+      value="rocking">Rocking</option>
+    <option 
+      value="other">Other</option>
+  </select>
+</div>
+
+ <div class="listing-input input-seats">
+  <label for="seats">Seats</label>
+  <select name="listing[seats]" id="seats">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+  </select>
+</div>
+
+ <div class="listing-input input-street">
+  <label for="street">Street Address<label>
+  <input
+    id="street"
+    name="listing[street]"
+    type="text"
+    value="<%= listing.escape("street")%>">
+  </div>
+  
+  <div class="listing-input input-city">
+  <label for="city">City<label>
+  <input
+    id="city"
+    name="listing[city]"
+    type="text"
+    value="<%= listing.escape("city") %>">
+  </div>
+  
+  <div class="listing-input input-zip-code">
+  <label for="zip_code">Zip Code<label>
+  <input
+    id="zip_code"
+    name="listing[zip_code]"
+    type="text"
+    value="<%= listing.escape("zip_code") %>">
+  </div>
+  
+   <div class="listing-input input-name">    
+    <label for="name">Name<label>
+    <input
+      id="name"
+      name="listing[name]"
+      type="text"
+      value="<%= listing.escape("name") %>">
+    </div>
+    
+  <div class="listing-input input-description">
+    <label for="description">Description<label>
+    <textarea
+      id="description"
+      name="listing[description]"
+      value="<%= listing.escape("description") %>">
+    </textarea>
+  </div>
+    
+<div class="listing-input input-price">
+  <label for="price">Price<label>
+  <input
+    id="price"
+    name="listing[price]"
+    type="number"
+    min="0"
+    max="9999"
+    step="0.01"
+    value="<%= listing.escape("price") %>">
+  </div>
+  
+  <h3>Add Picture</h3>
+  <input type="file" id="photo_image" name="picture[pic]">
+
+    <button>Add Listing</button>
+
+</form>
+
+
+
