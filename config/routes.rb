@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :show, :create], defaults: {format: :json} 
     resources :reviews, only: [:index, :show, :create], defaults: {format: :json} 
     resources :listings, only: [:index, :show, :create], defaults: {format: :json} 
-    resources :reservations, only: [:index, :show], defaults: {format: :json} 
+    resources :reservations, only: [:index, :show, :create], defaults: {format: :json} 
     resources :users, only: [:show, :create], defaults: {format: :json}
     
     get 'myListings' => 'listings#myListings', as: "myListings", defaults: {format: :json} 

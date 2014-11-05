@@ -1,1 +1,1 @@
-json.array! @reservations, :id, :chair_id, :sitter_id, :status, :start_date, :end_date, :price
+json.array! @reservations, :id, :chair_id, :sitter_id, :status, :start_date, :end_date, :price, :review_ready

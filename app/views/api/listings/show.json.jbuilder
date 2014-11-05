@@ -1,4 +1,5 @@
   json.current_user  current_user.id
+  json.res_placed    current_user.reservations.any?{|res| res.chair_id == @listing.id }
   json.id            @listing.id
   json.name          @listing.name
   json.description   @listing.description

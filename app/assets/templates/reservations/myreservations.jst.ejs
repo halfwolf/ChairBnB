@@ -7,10 +7,18 @@
   </div>
 </div>
 
+<div class="review-form"></div>
 <div class="dashboard-item dash-reservations">
 
   <% reservations.each(function(res) { %>
-    <li><%= res.formattedDate(res.attributes.start_date) %> to <%= res.formattedDate(res.attributes.end_date) %> for $<%= res.price() %></li>
+    <li><%= res.formattedDate(res.attributes.start_date) %> to 
+      <%= res.formattedDate(res.attributes.end_date) %> for $<%= res.price() %>
+    <% if (res.attributes.review_ready) {%>  
+      <button class="review" id="<%= res.attributes.id %>">Review!</button>
+    <% }%>
+    
+    
+    </li>
   <% }); %>
     
 </div>

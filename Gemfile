@@ -7,6 +7,7 @@ gem 'pg'
 gem 'figaro'
 gem 'paperclip', '~> 4.2'
 gem 'backbone-on-rails'
+gem 'geocoder'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

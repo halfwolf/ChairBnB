@@ -16,7 +16,7 @@ class Listing < ActiveRecord::Base
     has_many(:pictures)
     
   has_many :reviews, through: :reservations, source: :review
-    
+
   def pending_reservations?
     self.reservations.where("status = 'PENDING' AND end_date > :now", now: DateTime.now).length > 0
   end  
@@ -37,14 +37,19 @@ class Listing < ActiveRecord::Base
     self.street + " " + self.city + " " + self.fixed_zipcode
   end
   
-  def average_reviews
+  def review_score
     total = 0
     count = 0
-    self.reviews.each do |score|
-      score += score
+    self.reviews.each do |review|
+      total += review.rating
       count += 1
     end
-    count > 0 ? total / count : "No Reviews"
+    count > 0 ? total / count : 0
+  end
+  
+  def average_reviews
+    stars = "\u2606" * self.review_score
+    stars == 0 ? "No Reviews" : stars
   end
     
 end

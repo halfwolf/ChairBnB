@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.datetimepicker
 //= require underscore
 //= require backbone
 //= require chair_bn_b

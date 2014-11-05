@@ -30,7 +30,7 @@ class Reservation < ActiveRecord::Base
     self.save!
   end
 
-  def review_ready?
+  def review_ready
     self.end_date < Time.now && self.status == "APPROVED" && self.review.nil?
   end
   
