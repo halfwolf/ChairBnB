@@ -1,4 +1,4 @@
-
+  json.current_user  current_user.id
   json.id            @listing.id
   json.name          @listing.name
   json.description   @listing.description

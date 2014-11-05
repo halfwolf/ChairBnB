@@ -29,10 +29,23 @@
   </div>
   
   <div class="listing-about-host">
-    
+
   </div>
 </div>
 
+<div class="listing-utilities">
+  <% if (listing.escape("current_user") === listing.escape("owner_id")) { %>
+      hey you're logged in and the owner
+  <% } else if (listing.escape("current_user") !== undefined) {%>
+        <input
+          type="datetime-local"
+          id="end"
+          name="reservation[end_date]"
+          step="900">
+  <% } else {%>
+          you're not logged in
+  <% } %>
+</div>
 
 </div>
 
