@@ -329,3 +329,26 @@ div.dash-menu-wrapper > li > a.active{
 div.dash-menu-wrapper > li > a:hover{
     color: white;
 }
+
+div.message-form-input {
+  position: absolute;
+  z-index: 1000;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  padding: 50px;
+  margin-left: -250px;
+  transform: translateY(-50%);
+  background: white;
+  border-radius: 5px; 
+}
+
+div.modal-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.7);
+}

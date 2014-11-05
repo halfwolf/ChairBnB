@@ -6,7 +6,7 @@ ChairBnB.Views.UserShow = Backbone.View.extend({
   },
   
   events: {
-    'click.user-show-message-form': 'renderForm'
+    'click button.user-show-new-message': 'renderForm'
   },
   
   render: function() {

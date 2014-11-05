@@ -1,3 +1,5 @@
+<div class="message-form"></div>
+
 <div class="profile-pic-border group">
   <img src="<%= user.escape("user_icon") %>" class="profile-pic">
 </div>
@@ -7,7 +9,7 @@
   <h3><%= user.escape("email") %></h3>
   <p><%= user.escape("bio") %></p>
 </div>
-<div class="message-form"></div>
+
 <button class="user-show-new-message">Send <%= user.escape("name") %> a message</button>
 
 <ul>
@@ -15,3 +17,4 @@
     <li><a href="#/listings/<%= chair.escape("id") %>"><%= chair.escape("name") %> - <%= chair.escape("zip_code") %> </li>
   <% }); %>
 </ul>
+
