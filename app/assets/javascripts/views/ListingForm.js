@@ -19,7 +19,6 @@ ChairBnB.Views.ListingForm = Backbone.View.extend({
       price: this.$('#price').val(),
       picture: this.$('#photo_image').val()
     });
-    debugger
     var that = this
     this.collection.create(newListing, { success: function() {
         Backbone.history.navigate("#/listings/"+ that.collection.last().id, true)

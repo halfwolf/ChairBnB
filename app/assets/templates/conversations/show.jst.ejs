@@ -1,0 +1,25 @@
+<a href="#/conversations">Back</a>
+
+<form class="conversation-new-message">
+  
+  <label for="subject">subject</label>
+  <input
+    type="text"
+    name="message[subject]"
+    id="subject">
+
+  <label for="body">Body</label>
+  <textarea
+    name="message[body]"
+    id="body"></textarea>
+
+    <button>Send</button>
+</form>
+
+
+<div class="conversation">
+  <% conversation.messages().each(function(message) { %>
+    <li><%= message.escape("author") %> - <%= message.escape("subject") %></li>
+    <% }); %>
+</div>
+  

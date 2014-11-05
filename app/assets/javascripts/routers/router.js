@@ -11,8 +11,9 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
     'listings/:id': 'listingShow',
     'users/:id': 'userShow',
     'dashboard': 'dashboardShow',
+    'conversations': 'conversationsIndex',
+    'conversations/:id': 'conversationShow',
     'mylistings': 'myListings',
-    'mymessages': 'myMessages',
     'myreservations': 'myReservations',
     'myreviews': 'myReviews'
   },
@@ -73,11 +74,21 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
     this._swapView(view);
   },
   
-  myMessages: function() {
-    ChairBnB.Models.me.messages().fetch();
-
-    var view = new ChairBnB.Views.MyMessages({
-      collection: ChairBnB.Models.me.messages() 
+  conversationsIndex: function() {
+    ChairBnB.Models.me.conversations().fetch();
+    
+    var view = new ChairBnB.Views.ConversationsIndex({
+      collection: ChairBnB.Models.me.conversations()
+    })
+    
+    this._swapView(view)
+  },
+  
+  conversationShow: function(id) {
+    var conversation = ChairBnB.Models.me.conversations().getOrFetch(id);
+    
+    var view = new ChairBnB.Views.ConversationShow({
+      model: conversation
     })
     
     this._swapView(view);

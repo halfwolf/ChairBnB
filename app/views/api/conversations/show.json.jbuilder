@@ -1,4 +1,4 @@
-json.array! @conversation do |message|
+json.messages @conversation do |message|
   json.author         message.author.name
   json.receiver       message.receiver.name
   json.subject        message.subject

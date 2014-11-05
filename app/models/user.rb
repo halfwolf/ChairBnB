@@ -77,5 +77,18 @@ class User < ActiveRecord::Base
   def messages_with(id)
     self.all_messages.where("sender_id = :id OR receiver_id = :id", id: id)
   end
+  
+  def conversations
+    conversators = []
+    self.all_messages.each do |msg|
+      conversators << User.find(msg.receiver_id) unless msg.receiver_id == self.id
+      conversators << User.find(msg.sender_id) unless msg.sender_id == self.id
+    end
+    
+    conversators.uniq.sort.reverse
+  end
+  
+  def all_reviews
+  end
 
 end

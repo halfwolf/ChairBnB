@@ -24,6 +24,12 @@ ChairBnB.Models.Me = Backbone.Model.extend({
       new ChairBnB.Collections.Messages([], { user: this });
       return this._messages
   },
+  
+  conversations: function() {
+    this._conversations = this._conversations ||
+    new ChairBnB.Collections.Conversations([], {user: this });
+    return this._conversations
+  },
 
   parse: function(payload) {
     if (payload.reservations) {
@@ -41,6 +47,10 @@ ChairBnB.Models.Me = Backbone.Model.extend({
     if (payload.messages) {
       this.messages().set(payload.messages, {parse: true});
       delete payload.messages
+    }
+    if (payload.conversations) {
+      this.conversations().set(payload.conversations, {parse: true});
+      delete payload.conversations
     }
 
     return payload;

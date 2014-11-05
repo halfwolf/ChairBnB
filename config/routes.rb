@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get 'dashboard' => 'dashboard', as: "dashboard", defaults: {format: :json} 
+    resources :conversations, only: [:index, :show], defaults: {format: :json}
     resources :messages, only: [:index, :show, :create], defaults: {format: :json} 
     resources :reviews, only: [:index, :show, :create], defaults: {format: :json} 
     resources :listings, only: [:index, :show, :create], defaults: {format: :json} 

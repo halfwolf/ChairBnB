@@ -1,7 +1,7 @@
 <div class="dashboard-menu group">
   <div class="dashboard-item dash-menu-wrapper">
     <li><a href="#/mylistings">Listings</a></li>
-    <li><a href="#/mymessages" class="active">Messages</a></li>
+    <li><a href="#/conversations" class="active">Messages</a></li>
     <li><a href="#/myreservations">Reservations</a></li>
     <li><a href="#/myreviews">Reviews</a></li>
   </div>
@@ -9,8 +9,7 @@
 
 
 <div class="dashboard-item dash-listings">
-  <% messages.each(function(message) {%>
-    <li><a href="/messages/<%= message.escape("id") %>"><%= message.escape("subject") %></a> -
-      <%= message.escape("author") %></li>
+  <% conversations.each(function(conversation) {%>
+    <li><a href="#/conversations/<%= conversation.escape("user_id") %>"><img src="<%= conversation.escape("user_icon") %>" class="user-icon"><%= conversation.escape("name") %></a></li>
   <% }); %>
 </div>

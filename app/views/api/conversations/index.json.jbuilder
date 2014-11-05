@@ -1,4 +1,3 @@
-
 json.array! @conversations do |conv|
   json.user_id       conv.id
   json.name          conv.name

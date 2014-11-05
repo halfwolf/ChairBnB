@@ -7,7 +7,6 @@ class Api::ListingsController < ApplicationController
   
   def create
     @listing = current_user.listings.new(listing_params)
-    puts listing_params
     if @listing.save
       
       

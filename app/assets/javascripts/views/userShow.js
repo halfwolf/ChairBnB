@@ -5,13 +5,23 @@ ChairBnB.Views.UserShow = Backbone.View.extend({
     this.listenTo(this.model, "sync", this.render)
   },
   
+  events: {
+    'click.user-show-message-form': 'renderForm'
+  },
+  
   render: function() {
+    
     var content = this.template({
       user: this.model
     })
     this.$el.html(content)
     
     return this
+  },
+  
+  renderForm: function(event) {
+    var form = JST['users/message']
+    this.$('div.message-form').html(form);
   }
   
 })

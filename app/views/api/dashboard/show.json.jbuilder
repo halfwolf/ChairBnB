@@ -31,3 +31,9 @@ json.reviews current_user.all_reviews do |review|
   json.body       review.body
   json.rating     review.rating
 end
+
+json.conversations current_user.conversations do |conv|
+  json.user_id       conv.id
+  json.name          conv.name
+  json.user_icon     conv.avatar.url(:icon)
+end
