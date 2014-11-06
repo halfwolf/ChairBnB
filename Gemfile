@@ -6,8 +6,11 @@ gem 'rails', '4.1.1'
 gem 'pg'
 gem 'figaro'
 gem 'paperclip', '~> 4.2'
+gem 'aws-sdk'
 gem 'backbone-on-rails'
 gem 'geocoder'
+gem 'omniauth-facebook'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'

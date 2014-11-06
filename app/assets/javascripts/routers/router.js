@@ -35,8 +35,8 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
     }) 
     searchBox.keydown(function(event) {
       if (event.keyCode === 13) {
-        var query = event.currentTarget.value
-        that.mapView(query)
+        var query = encodeURIComponent(event.currentTarget.value)
+        window.location = "#/search/" + query
       }
     })
 

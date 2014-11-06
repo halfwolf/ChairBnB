@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   end
 
 
+  get '/auth/facebook/callback', to: 'oauth_callbacks#facebook'
+
   namespace :api do
     get 'dashboard' => 'dashboard', as: "dashboard", defaults: {format: :json} 
     resources :conversations, only: [:index, :show], defaults: {format: :json}

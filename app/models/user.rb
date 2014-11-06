@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>",
   icon: "100x100#",
   icon_small: "50x50#" },
-  default_url: "chair-sm.png"
+  default_url: "/assets/chair-sm.png"
+  
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   
   has_many( :listings,
@@ -50,6 +51,19 @@ class User < ActiveRecord::Base
   end
 
   attr_reader :password
+  
+  def self.find_or_create_by_fb_auth_hash(auth)
+    omniauth_id = auth['uid'] + auth['provider']
+    user = User.find_by_omniauth_id(omniauth_id)
+    return user if user
+
+    user = User.create!(omniauth_id: omniauth_id,
+                        email: auth["info"].email,
+                        password: omniauth_id,
+                        name: auth["info"].name)
+
+    return user
+  end
   
   def password=(password)
     @password = password
