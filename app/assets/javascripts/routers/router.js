@@ -2,7 +2,12 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
   initialize: function() {
     this.$rootEl = $('.content');
     this.listings = new ChairBnB.Collections.Listings();
-    this.listings.fetch()
+    this.listings.fetch(),
+    this.bindSearchEvents()
+  },
+  
+  events: {
+    
   },
   
   
@@ -18,6 +23,27 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
     'mylistings': 'myListings',
     'myreservations': 'myReservations',
     'myreviews': 'myReviews'
+  },
+  
+  bindSearchEvents: function(){
+    var searchBox = $('input.search-form')
+    var that = this
+    searchBox.on('click', function(){      
+      if (searchBox.val() === "Search...") {
+        searchBox.val("");
+      }
+    }) 
+    searchBox.keydown(function(event) {
+      if (event.keyCode === 13) {
+        var query = event.currentTarget.value
+        that.mapView(query)
+      }
+    })
+
+  },
+  
+  search: function() {
+    alert("we made it")
   },
   
   mapView: function(query) {

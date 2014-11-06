@@ -19,8 +19,14 @@
   
 <div class=main-navbar>    
   <a href="/">
-    <img src="<%= asset_path('chairbnb_icon.png') %>" class="header-icon"></img>
+    <img src="<%= asset_path('chairbnb_icon.png') %>" class="header-icon">
+    <img src="<%= asset_path('logo-med.png') %>" class="header-logo">
   </a>
+  
+  <div class="search-box group">
+    <img src="<%= asset_path('search-icon.png') %>" class="search-icon">
+    <input type="text" class="search-form" value ="Search...">
+  </div>
 
   <% if current_user %>
     <%= button_to "Logout", session_url, method: :delete, class: "logout-header" %>
