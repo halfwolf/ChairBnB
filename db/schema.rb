@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141103165820) do
+ActiveRecord::Schema.define(version: 20141105192616) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,9 +29,12 @@ ActiveRecord::Schema.define(version: 20141103165820) do
     t.string   "city"
     t.integer  "zip_code"
     t.integer  "seats"
+    t.float    "lon"
+    t.float    "lat"
   end
 
   add_index "listings", ["chair_type"], name: "index_listings_on_chair_type", using: :btree
+  add_index "listings", ["lon", "lat"], name: "index_listings_on_lon_and_lat", using: :btree
   add_index "listings", ["room_type"], name: "index_listings_on_room_type", using: :btree
   add_index "listings", ["seats"], name: "index_listings_on_seats", using: :btree
   add_index "listings", ["zip_code"], name: "index_listings_on_zip_code", using: :btree

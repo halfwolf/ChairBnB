@@ -2,11 +2,13 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
   initialize: function() {
     this.$rootEl = $('.content');
     this.listings = new ChairBnB.Collections.Listings();
+    this.listings.fetch()
   },
   
   
   routes: {
     'listings': 'listingsIndex',
+    'search/:query': 'mapView', 
     'listings/new': 'listingNew',
     'listings/:id': 'listingShow',
     'users/:id': 'userShow',
@@ -18,8 +20,22 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
     'myreviews': 'myReviews'
   },
   
+  mapView: function(query) {
+    var location = decodeURIComponent(query)
+    var listings = new ChairBnB.Collections.Listings()
+    
+    listings.fetch({ data:{min: "0,0", max: "0,0" }})
+    var view = new ChairBnB.Views.Map({
+      query: location,
+      collection: listings
+      })
+    this._swapView(view)
+    
+    //{ data:{min: "-74.21539306640625,42.72280375732727", max: "-73.8720703125,42.87495770751784" }}
+  },
+  
   listingsIndex: function() {
-    this.listings.fetch();
+    this.listings.fetch()
     var view = new ChairBnB.Views.ListingsIndex({
       collection: this.listings
     })

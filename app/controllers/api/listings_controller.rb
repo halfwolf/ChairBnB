@@ -1,7 +1,7 @@
 class Api::ListingsController < ApplicationController
 
   def index
-    @listings = Listing.all
+    @listings = Listing.bounded_listings(params)
     render :index
   end
   

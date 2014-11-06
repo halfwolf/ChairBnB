@@ -1,0 +1,21 @@
+<div class="dashboard-item dash-listings">
+  
+  <div class="listings group">
+  <% listings.each(function(chair) {%>
+  <li>
+     <div class="listing-box group">
+           <img src="<%= chair.escape("listing_icon") %>" class="listing-pic">
+           <img src="<%= chair.escape("host_pic") %>" class="host-pic">
+         <div class="listing-info">
+           <a href="#/listings/<%= chair.escape("id") %>" class="listing-box-title"><%= chair.escape("name") %></a>
+           <div class="listing-box-location"> <%= chair.escape("address") %></div>
+           <div class="listing-review-score">  &#9734;</div>
+         </div>
+
+         <div class="listing-box-price"><div class="price">$<%= chair.escape("price") %></div>Per hour</div>
+         <div class="pending-res">
+         
+     </div>
+    </li>
+  <% }); %>
+</div>
