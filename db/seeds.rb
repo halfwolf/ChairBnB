@@ -11,7 +11,8 @@
   User.create({
     name: Faker::Name.name,
     email: Faker::Internet.email,
-    password: "password"
+    password: "password",
+    avatar: Faker::Avatar.image
    })
 end
 #
@@ -23,16 +24,15 @@ ids = []
 
 
 30.times do
-
-
   l = Listing.new({
     owner_id: ids.sample,
     name: Faker::Commerce.product_name,
     room_type: "outside",
     chair_type: "rocking",
     seats: 1,
+    street: Faker::Address.street_address,
     zip_code: Faker::Address.zip,
-    price: 15
+    price: rand(50)
   })
   puts "heys"
   l.save!
