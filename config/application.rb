@@ -7,7 +7,8 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module ChairBnB
-  class Application < Rails::Application
+  class Application < Rails::Application    
+    
     config.paperclip_defaults = {
       :storage => :s3,
       :s3_credentials => {

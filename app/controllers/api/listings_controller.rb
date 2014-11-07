@@ -1,5 +1,7 @@
 class Api::ListingsController < ApplicationController
 
+  wrap_parameters false
+
   def index
     @listings = Listing.bounded_listings(params)
     render :index
@@ -10,7 +12,7 @@ class Api::ListingsController < ApplicationController
     if @listing.save
       
       
-      picture_params = params[:listing][:picture] ? pic_params : nil
+      picture_params = params[:listing][:pic] ? pic_params : nil
       @pic = Picture.new(picture_params)
       @pic.listing_id = @listing.id
       @pic.save
@@ -40,7 +42,7 @@ class Api::ListingsController < ApplicationController
   end
   
   def pic_params
-    params.require(:listing).permit(:picture)
+    params.require(:listing).permit(:pic)
   end
   
 

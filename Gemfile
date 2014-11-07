@@ -10,6 +10,7 @@ gem 'aws-sdk'
 gem 'backbone-on-rails'
 gem 'geocoder'
 gem 'omniauth-facebook'
+gem 'kaminari'
 
 
 # Use SCSS for stylesheets

@@ -3,7 +3,8 @@ class Picture < ActiveRecord::Base
   
   has_attached_file :pic, styles: { medium: "300x300>",
   icon: "100x100#"},
-  default_url: "/assets/chair-def.png"
+  default_url: "https://s3.amazonaws.com/chairbnb/public/chair-def.png"
+  
   validates_attachment_content_type :pic, content_type: /\Aimage\/.*\Z/
   
 end

@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   has_attached_file :avatar, styles: { medium: "300x300>",
   icon: "100x100#",
   icon_small: "50x50#" },
-  default_url: "/assets/chair-sm.png"
+  default_url: "https://s3.amazonaws.com/chairbnb/public/chair-sm.png"
   
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
   
