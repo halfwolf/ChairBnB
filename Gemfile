@@ -11,6 +11,7 @@ gem 'backbone-on-rails'
 gem 'geocoder'
 gem 'omniauth-facebook'
 gem 'kaminari'
+gem 'faker'
 
 
 # Use SCSS for stylesheets

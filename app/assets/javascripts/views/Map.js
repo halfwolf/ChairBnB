@@ -7,7 +7,37 @@ ChairBnB.Views.Map = Backbone.View.extend({
     this.listenToOnce(this.collection, "sync", this.renderMap)
   },
   
-
+  events: {
+    "click a.next": "nextPage",
+    "click a.prev": "prevPage"
+  },
+  
+  prevPage: function() {
+    this.page --;
+    this.collection.fetch({
+          data: {
+            min: this.min,
+            max: this.max,
+            page: this.page
+          }
+        })
+  },
+  
+  nextPage: function() {
+    if (!this.page) {
+      this.page = 1;
+    }
+    this.page ++;
+    this.collection.fetch({
+          data: {
+            min: this.min,
+            max: this.max,
+            page: this.page
+          }
+        })
+    
+  },
+  
   render: function() {
     var content = this.template();
     this.$el.html(content);
@@ -15,10 +45,10 @@ ChairBnB.Views.Map = Backbone.View.extend({
   },
   
   getNearbyListings: function(bounds) {
-    var min = bounds._southWest.lng + "," + bounds._southWest.lat
-    var max = bounds._northEast.lng + "," + bounds._northEast.lat
+    this.min = bounds._southWest.lng + "," + bounds._southWest.lat
+    this.max = bounds._northEast.lng + "," + bounds._northEast.lat
     this.listenTo(this.collection, "sync", this.renderListings)
-    this.collection.fetch({ data: {min: min, max: max} });
+    this.collection.fetch({ data: {min: this.min, max: this.max} });
 
   },
   
@@ -48,6 +78,15 @@ ChairBnB.Views.Map = Backbone.View.extend({
     var listingTemplate = JST['listings/bounded'];
     var listings = listingTemplate({listings: collection})
     this.$('div.bounded-listings').html(listings)
+    if (collection.length < 5 && this.page) {
+      this.$('div.page-navigation').html('<a class="prev" href="#">PREV</a>')
+    } else if (this.page) {
+      this.$('div.page-navigation').html('<a class="prev" href="#">PREV</a>')
+      this.$('div.page-navigation').append('<a class="next" href="#">NEXT</a>')
+    } else if (collection.length === 5) {
+      this.$('div.page-navigation').html('<a class="next" href="#">NEXT</a>')
+    }
+    
     var map = this.newmap;
     var objects = [];
     collection.each(function(chair){

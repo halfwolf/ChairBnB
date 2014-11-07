@@ -75,9 +75,9 @@ class Listing < ActiveRecord::Base
   end
   
   def full_address
-    street = (self.street + ",") || ""
-    city = (self.city + ",") || ""
-    (street + " " + city + " " + self.fixed_zipcode).strip
+    street = self.street  || ""
+    city = self.city || ""
+    (street + ", " + city + ", " + self.fixed_zipcode).strip
   end
   
   def review_score

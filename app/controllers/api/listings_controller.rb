@@ -3,7 +3,7 @@ class Api::ListingsController < ApplicationController
   wrap_parameters false
 
   def index
-    @listings = Listing.bounded_listings(params)
+    @listings = Listing.bounded_listings(params).page(params[:page]).per(5)
     render :index
   end
   
