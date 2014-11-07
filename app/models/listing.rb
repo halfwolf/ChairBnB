@@ -75,9 +75,15 @@ class Listing < ActiveRecord::Base
   end
   
   def full_address
-    street = self.street  || ""
-    city = self.city || ""
-    (street + ", " + city + ", " + self.fixed_zipcode).strip
+    if self.street.nil? && self.city.nil?
+      return self.fixed_zipcode
+    elsif self.street.nil? 
+      return self.city + ", " + self.fixed_zipcode
+    elsif self.city.nil?
+      return self.street + ", " + self.fixed_zipcode
+    else
+      (self.street + ", " + self.city + ", " + self.fixed_zipcode).strip
+    end
   end
   
   def review_score
@@ -92,7 +98,7 @@ class Listing < ActiveRecord::Base
   
   def average_reviews
     stars = "\u2606" * self.review_score
-    stars == 0 ? "No Reviews" : stars
+    stars == "" ? "No Reviews" : stars
   end
     
 end

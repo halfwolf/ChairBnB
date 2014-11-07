@@ -1,23 +1,47 @@
 <div class="dashboard-item map-listings">
   
+  
+  <div class="search-by group">
+    <h2> Sort By: </h2>
+    <div class="search-selector">
+      <input type="radio" name="search-by" id="highest-rated" value="0" checked="checked">
+      <label for="highest-rated">Rating <span>&#x25BC;</span></label>
+    </div>
+    <div class="search-selector">
+      <input type="radio" name="search-by" id="highest-priced" value="1">
+      <label for="highest-priced">Price <span>&#x25BC;</span></label>
+    </div>
+    
+    <div class="search-selector">
+      <input type="radio" name="search-by" id="lowest-priced" value="2">
+      <label for="lowest-priced">Price <span>&#x25B2;</span></label>
+    </div>
+  </div>
+  
+  
   <div class="listings group">
-  <% listings.each(function(chair) {%>
-  <li>
-     <div class="listing-box group">
-           <img src="<%= chair.escape("listing_icon") %>" class="listing-pic">
-           <img src="<%= chair.escape("host_pic") %>" class="host-pic">
-         <div class="listing-info">
-           <a href="#/listings/<%= chair.escape("id") %>" class="listing-box-title"><%= chair.escape("name") %></a>
-           <div class="listing-box-location"> <%= chair.escape("address") %></div>
-           <div class="listing-review-score">  &#9734;</div>
-         </div>
+    <% if (listings.length === 0 ) {%> 
+      <div class="no-listings">No seats found &#x2639;</div>
+      
+    <% } else { %>
+    <% listings.each(function(chair) {%>
+    <li>
+       <div class="listing-box single-listing-map-view group">
+             <img src="<%= chair.escape("listing_icon") %>" class="listing-pic">
+             <img src="<%= chair.escape("host_pic") %>" class="host-pic">
+           <div class="listing-info">
+             <a href="#/listings/<%= chair.escape("id") %>" class="listing-box-title"><%= chair.escape("name") %></a>
+             <div class="listing-box-location"> 
+               <%= chair.escape("address") %>
+             </div>
+             <div class="listing-review-score"><%= chair.escape('rating') %></div>
+           </div>
 
-         <div class="listing-box-price"><div class="price">$<%= chair.escape("price") %></div>Per hour</div>
-         <div class="pending-res">
-         
-     </div>
-    </li>
-  <% }); %>
+           <div class="listing-box-price"><div class="price">$<%= chair.escape("price") %></div>Per hour</div>
+         </div>
+      </li>
+    <% }); %>
+  <% } %>
 <div class="page-navigation"></div>
 </div>
 

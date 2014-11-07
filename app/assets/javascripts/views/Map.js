@@ -7,32 +7,36 @@ ChairBnB.Views.Map = Backbone.View.extend({
     this.listenToOnce(this.collection, "sync", this.renderMap)
   },
   
+  tagName: "section",
+  
+  className: "map-listings", 
+  
   events: {
     "click a.next": "nextPage",
-    "click a.prev": "prevPage"
+    "click a.prev": "prevPage",
+    "change input[name=search-by]": 'changeSort'
   },
   
   prevPage: function() {
-    this.page --;
+    this.queryParams.page --;
     this.collection.fetch({
           data: {
             min: this.min,
             max: this.max,
-            page: this.page
+            page: this.queryParams.page,
+            sort: this.queryParams.sort
           }
         })
   },
   
   nextPage: function() {
-    if (!this.page) {
-      this.page = 1;
-    }
-    this.page ++;
+    this.queryParams.page ++;
     this.collection.fetch({
           data: {
             min: this.min,
             max: this.max,
-            page: this.page
+            page: this.queryParams.page,
+            sort: this.queryParams.sort
           }
         })
     
@@ -87,6 +91,15 @@ ChairBnB.Views.Map = Backbone.View.extend({
       this.$('div.page-navigation').html('<a class="next" href="#">NEXT</a>')
     }
     
+    this.$('input[type=radio]').removeAttr("checked")
+    
+    for (var key in this.searchFunctions) {
+      if( this.searchFunctions[key] === this.queryParams.sort) {
+        this.$('input[type=radio][value='+ key +']').attr('checked', 'checked')
+      }
+      
+    }
+      
     var map = this.newmap;
     var objects = [];
     collection.each(function(chair){
@@ -94,6 +107,33 @@ ChairBnB.Views.Map = Backbone.View.extend({
     })
     map.featureLayer.setGeoJSON(objects)
     
-  }
+  },
+  searchFunctions: {
+    "0": "review_score DESC",
+    "1": "price DESC",
+    "2": "price ASC"
+  },
+  
+  queryParams: {
+    page: 1,
+    sort: "review_score DESC" 
+    
+  },
+  
+  changeSort: function() {
+  this.queryParams.sort =  this.searchFunctions[$('input[type=radio]:checked').val()]
+  this.collection.fetch({
+        data: { 
+          page: this.queryParams.page,
+          sort: this.queryParams.sort,
+          min: this.min,
+          max: this.max
+        }
+      })
+  },
+  
+  
+  
+  
     
 })

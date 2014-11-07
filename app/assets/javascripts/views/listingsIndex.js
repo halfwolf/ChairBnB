@@ -12,49 +12,68 @@ ChairBnB.Views.ListingsIndex = Backbone.View.extend({
     });
     this.$el.html(content);
     
-    if (this.collection.length < 5 && this.page) {
+    if (this.collection.length < 5 && this.queryParams.page !== 1) {
       this.$('div.page-navigation').html('<a class="prev" href="#">PREV</a>')
-    } else if (this.page) {
+    } else if (this.queryParams.page !== 1) {
       this.$('div.page-navigation').html('<a class="prev" href="#">PREV</a>')
       this.$('div.page-navigation').append('<a class="next" href="#">NEXT</a>')
     } else if (this.collection.length === 5) {
       this.$('div.page-navigation').html('<a class="next" href="#">NEXT</a>')
     }
     
+
+    this.$('input[type=radio]').removeAttr("checked")
+    
+    for (var key in this.searchFunctions) {
+      if( this.searchFunctions[key] === this.queryParams.sort) {
+        this.$('input[type=radio][value='+ key +']').attr('checked', 'checked')
+      }
+      
+    }
     
     
     return this
   },
   
-  events: {
-    "click a.next": "nextPage",
-    "click a.prev": "prevPage"
+  // is this insecure?
+  searchFunctions: {
+    "0": "review_score DESC",
+    "1": "price DESC",
+    "2": "price ASC"
   },
   
+
+  events: {
+    "click a.next": "nextPage",
+    "click a.prev": "prevPage",
+    "change input[name=search-by]": 'changeSort'
+  },
+  
+  queryParams: {
+    page: 1,
+    sort: "review_score DESC" 
+    
+  },
+  
+  changeSort: function() {
+  this.queryParams.sort =  this.searchFunctions[$('input[type=radio]:checked').val()]
+  this.collection.fetch({
+        data: this.queryParams
+      })
+  },
+  // can we take out these queries into a default?
   prevPage: function() {
-    this.page --;
+    this.queryParams.page --;
     this.collection.fetch({
-          data: {
-            min: this.min,
-            max: this.max,
-            page: this.page
-          }
+          data: this.queryParams
         })
   },
   
   nextPage: function() {
-    if (!this.page) {
-      this.page = 1;
-    }
-    this.page ++;
+    this.queryParams.page ++;
     this.collection.fetch({
-          data: {
-            min: this.min,
-            max: this.max,
-            page: this.page
-          }
+          data: this.queryParams
         })
-    
   }
   
   

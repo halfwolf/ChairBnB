@@ -3,7 +3,28 @@ class Api::ListingsController < ApplicationController
   wrap_parameters false
 
   def index
-    @listings = Listing.bounded_listings(params).page(params[:page]).per(5)
+    sort = { 
+      "rating DESC" => "rating DESC",
+      "price DESC" => "price DESC",
+      "price ASC" => "price ASC"
+    }
+    sort_params = sort[params[:sort]] || "rating DESC"
+    
+    if sort_params == "rating DESC"
+      listings_with_reviews = Listing.bounded_listings(params)
+        .select("listings.*")
+        .joins("LEFT OUTER JOIN reservations on reservations.chair_id = listings.id")
+        .joins("LEFT OUTER JOIN reviews on reviews.reservation_id = reservations.id")
+        .group("listings.id")
+        .order("CASE SUM(reviews.rating)
+                  WHEN 0 THEN 0
+                  ELSE AVG(reviews.rating)
+                END")
+       @listings = listings_with_reviews.page(params[:page]).per(5)
+    else
+    
+    @listings = Listing.bounded_listings(params).order(sort_params).page(params[:page]).per(5)
+  end
     render :index
   end
   

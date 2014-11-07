@@ -17,7 +17,8 @@
 <% end %>
 <body>
   
-<div class=main-navbar>    
+<nav class=main-navbar>   
+   
   <a href="/">
     <img src="<%= asset_path('chairbnb_icon.png') %>" class="header-icon">
     <img src="<%= asset_path('logo-med.png') %>" class="header-logo">
@@ -39,8 +40,8 @@
     <a href="<%= new_session_url %>" class="login-header">Log In</a>
     <a href="<%= new_user_url %>" class="login-header">Sign Up</a>
   <% end %>
-</div>
-  <div class="content group">
+</nav>
+  <div id="content" class="content group">
   <%= yield %>
   </div>
 </body>

@@ -1,6 +1,6 @@
 ChairBnB.Routers.Router = Backbone.Router.extend({
   initialize: function() {
-    this.$rootEl = $('.content');
+    this.$rootEl = $('#content');
     this.listings = new ChairBnB.Collections.Listings();
     this.listings.fetch(),
     this.bindSearchEvents()
@@ -56,8 +56,7 @@ ChairBnB.Routers.Router = Backbone.Router.extend({
       collection: listings
       })
     this._swapView(view)
-    
-    //{ data:{min: "-74.21539306640625,42.72280375732727", max: "-73.8720703125,42.87495770751784" }}
+
   },
   
   listingsIndex: function() {

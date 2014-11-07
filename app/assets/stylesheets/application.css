@@ -16,14 +16,19 @@
 
 h1, h2, h3, h4, h5, h6, ul, li, div, p, a, button {
   margin: 0;
- padding: 0;
- border: 0;
- font: inherit;
- vertical-align: baseline;
-  font-family: sans-serif;
-  background: inherit;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline;
+  background: transparent;
   text-decoration: none;
   list-style: none;
+  color: inherit;
+  
+}
+html, body {
+  font-family: sans-serif;
+  height: 100%;
 }
 
 ul.error-messages {
@@ -40,11 +45,13 @@ clear: both;
 }
 
 div.content {
+  height: 90%;
   min-height: 641px;
 }
 
 
-div.main-navbar {
+
+nav.main-navbar {
   width: 100%;
   min-width: 600px;
   height: 40px;
@@ -52,7 +59,7 @@ div.main-navbar {
   border-bottom: 1px solid #E4E6E3;
 }
 
-div.main-navbar > .button_to {
+nav.main-navbar > .button_to {
   float: right;
   margin: 7px 10px;
   font-size: 15px;
@@ -101,7 +108,6 @@ footer > a {
   font-size: 75px;
   font-weight: bold;
   color: white;
-  opacity: .9;
 }
 
 div.welcome-listings-link {
@@ -115,7 +121,7 @@ div.welcome-listings-link {
   border-radius: 3px;
   padding: 10px 15px 10px;
   opacity: .5;
-}
+  }
 .welcome-page > a {
   color: white;
   opacity: 1;
@@ -133,13 +139,13 @@ div.listing-primary-image {
 }
 
 div.listing-review-score {
-  display: bloc;
+  display: block;
   font-size: 24px;
   font-weight: bold;
   padding: 0;
   border: 0;
   margin: 0;
-  line-height: 15px;
+  line-height: 25px;
   
 }
 
@@ -279,23 +285,6 @@ div.listing-show-info > h1 {
   padding: 5px 0 10px;
 }
 
-div.sign-form {
-  display: block;
-  margin: 100px auto;
-  width: 250px;
-  color: #565A5C;
-}
-
-div.sign-input {
-  padding: 5px;
-}
-
-form.new-user > button {
-  border: 1px solid grey;
-  padding: 3px;
-  border-radius: 5px;
-  color: #565A5C;
-}
 
 /* Dashboard Menubar */
 
@@ -378,7 +367,7 @@ div.modal-screen {
 }
 
 input.search-form {
-  margin: 5px 5px;
+  margin: 4px 5px 4px;
   font-size: 14px;
   color: #909697;
   border: 0;

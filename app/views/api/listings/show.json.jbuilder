@@ -4,7 +4,7 @@
   json.name          @listing.name
   json.description   @listing.description
   json.owner_id      @listing.owner_id
-  json.price         @listing.price
+  json.price         '%.2f' % @listing.price
   json.room_type     @listing.room_type
   json.chair_type    @listing.chair_type
   json.address       @listing.full_address

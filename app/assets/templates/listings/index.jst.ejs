@@ -1,5 +1,23 @@
-<div class="dashboard-item dash-listings">
   <div class="listings group">
+    
+    <div class="search-by group">
+      <h2> Sort By: </h2>
+      <div class="search-selector">
+        <input type="radio" name="search-by" id="highest-rated" value="0" checked="checked">
+        <label for="highest-rated">Rating <span>&#x25BC;</span></label>
+      </div>
+      <div class="search-selector">
+        <input type="radio" name="search-by" id="highest-priced" value="1">
+        <label for="highest-priced">Price <span>&#x25BC;</span></label>
+      </div>
+      
+      <div class="search-selector">
+        <input type="radio" name="search-by" id="lowest-priced" value="2">
+        <label for="lowest-priced">Price <span>&#x25B2;</span></label>
+      </div>
+    </div>
+
+<div class="dashboard-item dash-listings">
   <% listings.each(function(chair) {%>
   <li>
      <div class="listing-box group">
