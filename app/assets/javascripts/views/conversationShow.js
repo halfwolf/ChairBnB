@@ -16,10 +16,14 @@ ChairBnB.Views.ConversationShow = Backbone.View.extend({
   
   create: function(event) {
     event.preventDefault();
+    debugger
     var newMessage = new ChairBnB.Models.Message({
       subject: this.$('#subject').val(),
       body: this.$('#body').val(),
-      receiver_id: this.model.id
+      receiver_id: this.model.id,
+      author_pic: this.model.attributes.self_pic,
+      author_id: this.model.attributes.self_id
+      
     })
     
     var that = this;

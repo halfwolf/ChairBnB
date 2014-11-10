@@ -3,6 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+section.conversation-show {
+  width: 800px;
+  margin: auto;
+}
+
 div.other-message {
   position: relative;
   margin: 5px;
@@ -18,7 +23,7 @@ div.self-message {
 
 div.message-content {
   border-radius: 10px;
-  background: lightgrey;
+  background: #E5F7FE;
   width: 713px;  
   min-height: 85px;
 }
@@ -26,10 +31,12 @@ div.message-content {
 div.conversation img {
   height: 73px;
   margin: 5px;
+  border-radius: 50px;
 }
 
 div.other-message > img {
   float: left;
+
 }
 
 div.self-message > img {
@@ -70,7 +77,7 @@ div.other-message > div.message-content > h3 {
 
 div.other-message > div.message-content:after {
   position: absolute;
-  top: 15px;
+  top: 30px;
   left: 77px;
   content: "";
   display: block;
@@ -78,13 +85,13 @@ div.other-message > div.message-content:after {
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left:  0px solid lightgrey;
-  border-right: 10px solid lightgrey;
+  border-left:  0px solid #E5F7FE;
+  border-right: 10px solid #E5F7FE;
 }
 
 div.self-message > div.message-content:after {
   position: absolute;
-  top: 15px;
+  top: 30px;
   right: 77px;
   content: "";
   display: block;
@@ -92,8 +99,8 @@ div.self-message > div.message-content:after {
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-left: 10px solid lightgrey;
-  border-right: 0px solid lightgrey;
+  border-left: 10px solid #E5F7FE;
+  border-right: 0px solid #E5F7FE;
 }
 
 div.self-message > div.message-content {
@@ -111,5 +118,72 @@ div.self-message > div.message-content > p {
 div.self-message > div.message-content > h3 {
   float: left;
 }
+
+form.conversation-new-message {
+  position: relative;
+  border-radius: 10px;
+  background: #E5F7FE;
+  width: 713px;  
+  min-height: 85px;
+  margin-left: 90px ;
+}
+
+form.conversation-new-message > label {
+  visibility: hidden;
+  position: absolute;
+}
+
+form.conversation-new-message > input { 
+  float: left;
+  display: block;
+  background: inherit;
+  border: none;
+  margin: 10px 10px 5px 10px;
+  font-size: 14px;
+}
+
+form.conversation-new-message > textarea { 
+  float: left;
+  display: block;
+  background: inherit;
+  width: 600px;
+  margin: 10px;
+  font-size: 16px;
+  border: none;
+  height: 100px;
+}
+
+form.conversation-new-message > button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  float: right;
+  display: block;
+  padding: 5px 10px;
+  background: #54B517;
+  margin: 10px;
+  color: white;
+  border-radius: 2px;
+  box-shadow: 0 1px grey;
+  outline: none;
+}
+
+
+form.conversation-new-message > i {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 10px;
+  font-size: 12px;
+  color: grey;
+  font-weight: bold;
+}
+
+form.conversation-new-message > button:active {
+  box-shadow: none;
+  bottom: -1px;
+}
+
+
 
 

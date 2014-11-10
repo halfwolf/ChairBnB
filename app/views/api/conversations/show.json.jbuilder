@@ -1,4 +1,5 @@
 json.self_id          @current_user.id
+json.self_pic         @current_user.avatar(:icon)
 
 json.messages @conversation do |message|
   json.author         message.author.name
