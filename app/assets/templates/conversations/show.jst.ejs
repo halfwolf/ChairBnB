@@ -18,8 +18,22 @@
 
 
 <div class="conversation">
-  <% conversation.messages().each(function(message) { %>
-    <li><%= message.escape("author") %> - <%= message.escape("subject") %></li>
+  <% conversation.messages().each(function(message) { %>    
+    <% if (message.attributes.author_id === conversation.attributes.self_id) { %>
+      <div class="self-message group">
+    <% } else { %>
+      <div class="other-message group">
+    <% } %>
+      <img src="<%= message.escape("author_pic") %>">
+      <div class="message-content">
+        <strong><%= message.escape("subject") %></strong>
+        <p><%= message.escape("body") %></p>
+        <h3><%= message.escape("send_date").toLocaleString('en') %></h3>
+      </div>
+    </div>
+    
+    
+    
     <% }); %>
 </div>
   

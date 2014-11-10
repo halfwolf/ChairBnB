@@ -1,3 +1,115 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+div.other-message {
+  position: relative;
+  margin: 5px;
+  width: 800px;
+}
+
+div.self-message {
+  position: relative;
+  margin: 5px;
+  width: 800px;
+  margin-left: 90px;
+}
+
+div.message-content {
+  border-radius: 10px;
+  background: lightgrey;
+  width: 713px;  
+  min-height: 85px;
+}
+
+div.conversation img {
+  height: 73px;
+  margin: 5px;
+}
+
+div.other-message > img {
+  float: left;
+}
+
+div.self-message > img {
+  float: right;
+}
+
+
+div.message-content > strong {
+  width: 705px;
+  padding: 5px 5px 0;
+}
+
+div.message-content > p {
+  width: 705px;
+  padding: 5px;
+}
+
+div.message-content > h3 { 
+  color: grey;
+}
+
+div.other-message > div.message-content {
+  float: right;
+}
+
+
+div.other-message > div.message-content > strong {
+  float: left;
+}
+
+div.other-message > div.message-content > p {
+  float: left;
+}
+
+div.other-message > div.message-content > h3 {
+  float: right;
+}
+
+div.other-message > div.message-content:after {
+  position: absolute;
+  top: 15px;
+  left: 77px;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left:  0px solid lightgrey;
+  border-right: 10px solid lightgrey;
+}
+
+div.self-message > div.message-content:after {
+  position: absolute;
+  top: 15px;
+  right: 77px;
+  content: "";
+  display: block;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid lightgrey;
+  border-right: 0px solid lightgrey;
+}
+
+div.self-message > div.message-content {
+  float: left;
+}
+
+div.self-message > div.message-content > strong {
+  float: right;
+}
+
+div.self-message > div.message-content > p {
+  float: right;
+}
+
+div.self-message > div.message-content > h3 {
+  float: left;
+}
+
+

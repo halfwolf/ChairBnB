@@ -6,6 +6,10 @@ ChairBnB.Views.ConversationShow = Backbone.View.extend({
     this.listenTo(this.model.messages(), "add", this.render)
   },
   
+  tagName: "section",
+  
+  className: "conversation-show", 
+  
   events: {
     'submit': 'create'
   },
