@@ -7,6 +7,7 @@
   <%= javascript_include_tag "application" %>
   <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.js'></script>
   <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.4/mapbox.css' rel='stylesheet' />
+  <link href='http://fonts.googleapis.com/css?family=Cabin' rel='stylesheet' type='text/css'>
 </head>
 <% if flash[:errors] %>
   <ul class="error-messages">
@@ -16,14 +17,14 @@
   </ul>
 <% end %>
 <body>
-  
-<nav class=main-navbar>   
-   
+
+<nav class=main-navbar>
+
   <a href="/">
     <img src="<%= asset_path('chairbnb_icon.png') %>" class="header-icon">
     <img src="<%= asset_path('logo-med.png') %>" class="header-logo">
   </a>
-  
+
   <div class="search-box group">
     <img src="<%= asset_path('search-icon.png') %>" class="search-icon">
     <input type="text" class="search-form" value ="Search...">
@@ -35,7 +36,7 @@
     <div class="username-header">Hi, <%= current_user.name %>!</div>
     <a href="#/listings/new" class="addchair-header">Add Chair</a>
 
-   
+
   <% else %>
     <a href="<%= new_session_url %>" class="login-header">Log In</a>
     <a href="<%= new_user_url %>" class="login-header">Sign Up</a>

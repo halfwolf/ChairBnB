@@ -17,7 +17,6 @@ div.sign-form > a {
 div.sign-form {
   border: 1px solid #c4c4c4;
   border-radius: 2px;
-  width: 400px;
 }
 
 form.new-user > input, form.new-user > label {
@@ -25,8 +24,13 @@ form.new-user > input, form.new-user > label {
   width: 225px;
   text-align: center;
   padding: 2px;
+  margin: auto;
 
   border-radius: 2px;
+}
+
+form.new-user > label {
+  padding: 5px 0 0;
 }
 
 form.new-user > input {
@@ -34,8 +38,7 @@ form.new-user > input {
 }
 
 form.new-user {
-  float: left ;
-  padding: 12.5px;
+  padding: 5px 0;
 }
 div.sign-form > h1 {
   float: left ;
@@ -44,10 +47,14 @@ div.sign-form > h1 {
 }
 
 form.new-user > button {
-border: 1px solid black;
-margin: 8px 85px 0;
-padding: 2px;
-border-radius: 5px;
+  box-shadow: 0 1px 0 #E00007;
+  display: block;
+  margin: 8px auto;
+  width: 225px;
+  padding: 5px;
+  border-radius: 2px;
+  background: #FF5A5F;
+  color: white;
 }
 
 
@@ -58,6 +65,11 @@ div.sign-form {
   color: #565A5C;
 }
 
-
-
-
+div.demo-user {
+  border: 1px solid black;
+  border-radius: 2px;
+  padding: 5px;
+  width: 213px;
+  text-align: center;
+  margin: 8px auto;
+}

@@ -24,10 +24,10 @@ h1, h2, h3, h4, h5, h6, ul, li, div, p, a, button {
   text-decoration: none;
   list-style: none;
   color: inherit;
-  
+
 }
 html, body {
-  font-family: sans-serif;
+  font-family: 'Cabin', sans-serif;
   height: 100%;
 }
 
@@ -146,7 +146,7 @@ div.listing-review-score {
   border: 0;
   margin: 0;
   line-height: 25px;
-  
+
 }
 
 
@@ -208,7 +208,7 @@ div.listing-show-info {
 }
 
 div.listing-show-attributes {
- width: 600px; 
+ width: 600px;
  padding: 10px;
  float: left;
  display: block;
@@ -308,7 +308,7 @@ div.dash-menu-wrapper > li > a {
   padding: 5px 0;
   display: block;
   font-size: 12px;
-  
+
 }
 div.dash-menu-wrapper > li > a.active{
   color: white;
@@ -329,7 +329,7 @@ div.review-form-modal {
   margin-left: -250px;
   transform: translateY(-50%);
   background: white;
-  border-radius: 5px;  
+  border-radius: 5px;
 }
 
 div.message-form-modal {
@@ -342,7 +342,7 @@ div.message-form-modal {
   margin-left: -250px;
   transform: translateY(-50%);
   background: white;
-  border-radius: 5px; 
+  border-radius: 5px;
 }
 
 .modal-close {
@@ -377,15 +377,15 @@ input.search-form {
 input.search-form:focus {
   border: none;
   box-shadow: none;
-  outline: none; 
-} 
+  outline: none;
+}
 
 div.search-box {
   float: left;
   display: block;
   border: 1px solid #C4C4C4;
   width: 200px;
-  height: 28px; 
+  height: 28px;
   margin: 2px 20px;
   border-radius: 2px;
 }
@@ -401,5 +401,3 @@ img.search-icon {
   height: 30px;
   -webkit-filter: invert(50%);
 }
-
-

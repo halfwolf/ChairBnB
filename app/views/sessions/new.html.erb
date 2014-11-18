@@ -10,14 +10,11 @@
     name="authenticity_token"
     value="<%= form_authenticity_token %>">
 
-
   <label for="user_email">Email</label>
   <input
     type="text"
     name="user[email]"
     id="user_email">
-
-  
 
   <label for="user_password">Password</label>
   <input
@@ -26,6 +23,14 @@
 
 
   <button>Sign In</button>
-
+  <div class="demo-user">Demo User</button></div>
 </form>
 </div>
+
+<script>
+$('div.demo-user').click(function() {
+  $('input#user_email').val("ned@stark.com")
+  $('input[type=password]').val("ILoveCatelyn")
+})
+
+</script>
