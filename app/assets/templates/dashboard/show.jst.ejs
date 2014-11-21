@@ -1,9 +1,24 @@
 
 <div class="dashboard-menu group">
-  <div class="dashboard-item dash-menu-wrapper">
+  <div class="dashboard-item dash-menu-wrapper group">
+    <li><a href="#/dashboard" class="active">Home</a></li>
     <li><a href="#/mylistings">Listings</a></li>
     <li><a href="#/conversations">Messages</a></li>
     <li><a href="#/myreservations">Reservations</a></li>
     <li><a href="#/myreviews">Reviews</a></li>
+  </div>
+</div>
+
+<div class="dashboard-content">
+  <div class="dash-profile-group">
+  <img src="<%= current_user.escape("avatar") %>">
+  <h2><%= current_user.escape("name") %></h2>
+  <a href="#">Edit Profile</a>
+  </div>
+
+  <div class="dash-new-messages">
+  </div>
+
+  <div class="dash-new-reservations">
   </div>
 </div>

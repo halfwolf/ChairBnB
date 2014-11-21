@@ -206,7 +206,6 @@ div.listing-show-info {
   float: left;
   display: block;
   color: #565A5C;
-  border-bottom: 1px solid #DCE0E0;
 }
 
 div.listing-show-attributes {
@@ -281,7 +280,7 @@ div.dash-menu-wrapper > li > a {
   color: #CACCCD;
   padding: 5px 0;
   display: block;
-  font-size: 12px;
+  font-size: 22px;
 
 }
 div.dash-menu-wrapper > li > a.active{
@@ -291,6 +290,64 @@ div.dash-menu-wrapper > li > a.active{
 }
 div.dash-menu-wrapper > li > a:hover{
     color: white;
+}
+
+div.dashboard-content {
+  padding-top: 25px;
+  width: 800px;
+  margin: auto;
+}
+div.dash-profile-group {
+  float: left;
+  width: 200px;
+  height: 300px;
+  border: 1px solid #DCe0e0;
+  background: white;
+}
+
+div.dash-profile-group > img {
+  width: 200px;
+  height: 200px;
+}
+
+div.dash-profile-group > h2 {
+  width: 100%;
+  text-align: center;
+  color: #565A5C;
+  font-size: 36px;
+}
+
+div.dash-profile-group > a {
+  text-align: center;
+  background: #FF5A5F;
+  color: white;
+  box-shadow: 0 1px 0 #E00007;
+
+  display: block;
+  width: 125px;
+  padding: 5px;
+  margin: 10px auto 0;
+}
+
+div.dash-new-messages {
+  float: left;
+  width: 500px;
+  height: 200px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border: 1px solid #DCe0e0;
+  background: white;
+
+}
+
+div.dash-new-reservations {
+  float: left;
+  width: 500px;
+  height: 200px;
+  margin-left: 20px;
+  border: 1px solid #DCe0e0;
+  background: white;
+
 }
 
 div.review-form-modal {

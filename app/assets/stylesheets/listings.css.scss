@@ -15,8 +15,10 @@ div.listing-pictures {
 div.listing-quick-info {
   display: block;
   position: relative;
-  bottom-border: 2px solid grey;
+  border-bottom: 1px #DCE0E0;
   height: 120px;
+  width: 1000px;
+  margin: auto;
 }
 div.listing-pictures > img {
   width: 100%;
@@ -40,6 +42,20 @@ div.listing-rate {
   background: black;
   opacity: .8;
   color: white;
+}
+
+div.listing-about > h3 {
+  font-style: bold;
+  font-size: 22px;
+  float: left;
+  display: block;
+  width: 100%;
+  color: #565A5C;
+}
+
+div.listing-about > p {
+  display: block;
+  width: 100%;
 }
 
 div.listing-rate > h2 {
@@ -91,9 +107,26 @@ div.listing-req > button {
 }
 
 div.listing-about {
-  
+  width: 1000px;
+  margin: auto;
+  padding-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 100px;
+  border-bottom: 1px solid #E4E6E3;
 }
 
+div.listing-show-reviews {
+  width: 1000px;
+  margin: auto;
+  padding-left: 100px;
+}
+
+div.listing-show-reviews > h3 {
+  font-style: bold;
+  font-size: 22px;
+  color: #565A5C;
+
+}
 
 /* Listing Search  */
 

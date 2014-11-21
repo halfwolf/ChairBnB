@@ -1,5 +1,4 @@
-json.extract! current_user, :name, :id
-
+json.extract! current_user, :name, :id, :avatar
 json.listings current_user.listings do |chair|
   json.id           chair.id
   json.name         chair.name
