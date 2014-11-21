@@ -9,3 +9,99 @@ div.welcome-page {
   text-align: center;
   // padding-bottom: 100%;
 }
+
+
+div.welcome-page {
+  position: relative;
+  height: 655px;
+}
+div.home-panel {
+  display: block;
+  width: 50%;
+  height: 100%;
+}
+
+div.home-left-panel{
+  float: left;
+}
+
+div.home-right-panel{
+  float: right;
+}
+
+div.home-explanation {
+  width: 70%;
+  height: 50%;
+  margin: 25% 15%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}
+
+div.home-explanation > h3, p {
+  color: #ffffff;
+  padding-top: 20px;
+}
+
+div.home-explanation > h3 {
+  font-size: 48px;
+  font-weight: bold;
+}
+
+div.home-explanation > p {
+  font-size: 24px;
+  padding: 20px 15px 0;
+}
+
+div.links-panel {
+  margin: auto;
+  width: 90%;
+}
+
+div.location-link {
+  position: relative;
+  width: 30%;
+  padding: 10px;
+  float: left;
+}
+
+img.welcome{
+  position: absolute;
+  width: 1236px;
+  z-index: 0;
+}
+
+img.location-pic {
+  width: 100%;
+}
+
+div.location-link > h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+  transform: translateX(-50%);
+  color: #ffffff;
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+}
+
+div.overlay {
+  opacity: 0;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  box-sizing: border-box;
+  border-top: 9px solid #eDeFeD;
+  border-right: 10px solid #eDeFeD;
+  border-bottom: 15px solid #eDeFeD;
+  border-left: 10px solid #eDeFeD;
+  top: 0;
+  height: 100%;
+  width: 100%;
+}
+
+div.overlay:hover {
+  opacity: .5;
+  transition: .2s;
+}
