@@ -1,6 +1,9 @@
 // Place all the styles related to the Listings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* Listing Show */
+
 div.listing-pictures {
   margin: 10px auto;
   text-align: center;
@@ -86,6 +89,13 @@ div.listing-req > button {
   background: #FF5A5F;
   color: white;
 }
+
+div.listing-about {
+  
+}
+
+
+/* Listing Search  */
 
 div.search-selector{
   position: relative;
