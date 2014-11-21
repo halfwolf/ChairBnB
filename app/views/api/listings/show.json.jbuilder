@@ -1,5 +1,9 @@
-  json.current_user  current_user.id
-  json.res_placed    current_user.reservations.any?{|res| res.chair_id == @listing.id }
+  if current_user
+    json.current_user  current_user.id
+    json.res_placed    current_user.reservations.any?{|res| res.chair_id == @listing.id }
+  else
+    json.current_user     nil
+  end
   json.id            @listing.id
   json.name          @listing.name
   json.description   @listing.description

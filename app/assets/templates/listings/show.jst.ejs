@@ -2,56 +2,62 @@
   <div class="listing-pictures">
     <img src="<%= listing.escape("listing_pic") %>">
   </div>
- 
+
  <div class="listing-quick-info">
-  
   <div class="owner-info">
-    
-    <div class="profile-pic-border group">
-      <img src="<%= listing.escape("host_pic") %>" class="profile-pic">
-    </div>
-   
+    <a href="#/users/<%= listing.escape("owner_id") %>">
+      <div class="profile-pic-border group">
+        <img src="<%= listing.escape("host_pic") %>" class="profile-pic">
+      </div>
+    </a>
    <h4> <%= listing.escape("owner") %></h4>
- </div> 
- 
+ </div>
+
   <div class="listing-show-info">
     <h1><%= listing.escape("name") %></h1>
-    <h4><%= listing.escape("full_address") %></h4>
+    <h4><%= listing.escape("address") %></h4>
     <h4><%= listing.escape("average_reviews") %></h4>
-  </div>
 
-</div>
-  
-  <div class="listing-show-attributes">
-    <li>Chair Type: <%= listing.escape("chair_type").toUpperCase() %></li>
-    <li>Room: <%= listing.escape("room_type").toUpperCase() %></li>
-    <li>Seats <%= listing.escape("seats") %></li>
-  </div>
-  
-  <div class="listing-about-host">
+    <div class="listing-show-attributes">
+      <li>Chair Type: <%= listing.escape("chair_type").toUpperCase() %></li>
+      <li>Room: <%= listing.escape("room_type").toUpperCase() %></li>
+      <li>Seats <%= listing.escape("seats") %></li>
+    </div>
 
-  </div>
-</div>
 
-<div class="listing-utilities">
-  <% if (listing.escape("current_user") === listing.escape("owner_id")) { %>
-      hey you're logged in and the owner
+      <% if (listing.escape("current_user") === listing.escape("owner_id")) { %>
   <% } else if (listing.escape("current_user") !== undefined) {%>
+    <div class="listing-utilities">
     <% if (listing.escape("res_placed") === "true" ) { %>
       You've already placed a reservation request!
     <% } else { %>
-      <h2>$<%= listing.escape("price") %> per hour</h2>
-      <label for="start_date">Sit Down</label>
-      <input id="start_date" class="datetimepicker" name="reservation[start_date]" type="text" >
-       <label for="end_date">Stand Up</label>
-      <input id="end_date" class="datetimepicker" name="reservation[end_date]" type="text" >
-      <button class="place-res">Request Reservation</button>
+      <div class="listing-rate group">
+        <h2>$<%= listing.escape("price") %></h2>
+        <h4>per hour</h4>
+      </div>
+      <div class="listing-req group">
+        <label for="start_date">Sit Down</label>
+        <input id="start_date" class="datetimepicker" name="reservation[start_date]" type="text" >
+         <label for="end_date">Stand Up</label>
+        <input id="end_date" class="datetimepicker" name="reservation[end_date]" type="text" >
+        <button class="place-res">Request Reservation</button>
+      </div>
       <% } %>
+      </div>
   <% } else {%>
           you're not logged in
-  <% } %>
-</div>
+          </div>
 
+  <% } %>
+  </div>
+
+
+
+  </div>
+
+
+
+</div>
 <script>
   $(document).ready(function(){
     jQuery('.datetimepicker').datetimepicker({
@@ -62,5 +68,3 @@
 </script>
 
 </div>
-
-

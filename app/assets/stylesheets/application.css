@@ -211,7 +211,6 @@ div.listing-show-info {
 
 div.listing-show-attributes {
  width: 600px;
- padding: 10px;
  float: left;
  display: block;
  color: #82888A;
@@ -219,8 +218,9 @@ div.listing-show-attributes {
 
 div.listing-show-attributes > li {
   float: left;
-  padding: 10px;
+  padding: 10px 20px 10px 0;
 }
+
 
 img.profile-pic {
   height: 100px;
@@ -244,17 +244,6 @@ div.owner-info > h4 {
   color: #8f9596;
 }
 
-div.listing-utilities {
-  display: block;
-  border: 1px lightgrey;
-  width: 220px;
-  position: absolute;
-  top: 564px;
-  right: 20px;
-  background: white;
-  border: 2px solid #DCE0E0;
-}
-
 div.owner-info {
   width: 100px;
   display: block;
@@ -266,27 +255,10 @@ div.owner-info > h4 {
     text-align: center;
 }
 
-div.listing-quick-info {
-  display: block;
-  bottom-border: 2px solid grey;
-  height: 120px;
-}
 
 img.listing-pic {
   width: 100px;
 }
-
-div.listing-pictures {
-  margin: 10px auto;
-  text-align: center;
-  border-bottom: 1px solid #E4E6E3;
-}
-
-div.listing-show-info > h1 {
-  font-size: 30px;
-  padding: 5px 0 10px;
-}
-
 
 /* Dashboard Menubar */
 
