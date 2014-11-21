@@ -46,7 +46,7 @@ clear: both;
 }
 
 div.content {
-  min-height: 641px;
+min-height: 100%;
 }
 
 
