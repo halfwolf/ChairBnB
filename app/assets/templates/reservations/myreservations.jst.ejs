@@ -1,5 +1,6 @@
 <div class="dashboard-menu group">
-  <div class="dashboard-item dash-menu-wrapper">
+  <div class="dashboard-item dash-menu-wrapper group">
+    <li><a href="#/dashboard">Home</a></li>
     <li><a href="#/mylistings">Listings</a></li>
     <li><a href="#/conversations">Messages</a></li>
     <li><a href="#/myreservations" class="active">Reservations</a></li>
@@ -11,16 +12,14 @@
 <div class="dashboard-item dash-reservations">
 
   <% reservations.each(function(res) { %>
-    <li><%= res.formattedDate(res.attributes.start_date) %> to 
+    <li><%= res.formattedDate(res.attributes.start_date) %> to
       <%= res.formattedDate(res.attributes.end_date) %> for $<%= res.price() %>
-    <% if (res.attributes.review_ready) {%>  
+    <% if (res.attributes.review_ready) {%>
       <button class="review" id="<%= res.attributes.id %>">Review!</button>
     <% }%>
-    
-    
+
+
     </li>
   <% }); %>
-    
+
 </div>
-
-

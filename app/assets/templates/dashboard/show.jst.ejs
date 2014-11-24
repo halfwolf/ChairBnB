@@ -17,8 +17,22 @@
   </div>
 
   <div class="dash-new-messages">
+    <h2>New Messages</h2>
+    <% current_user.conversations().each(function(conversation) {%>
+      <li>
+        <a href="#/conversations/<%= conversation.escape("user_id") %>" class="main-message-preview group">
+          <img src="<%= conversation.escape("user_icon") %>" class="user-icon">
+          <h3><%= conversation.escape("name") %></h3>
+          <% if (conversation.messages().last() && conversation.messages().last().escape("unread") === "false") { %>
+            <h5>New!</h5>
+          <% } %>
+        </a>
+      </li>
+    <% }); %>
   </div>
 
   <div class="dash-new-reservations">
+    <h2>New Reservations</h2>
+
   </div>
 </div>

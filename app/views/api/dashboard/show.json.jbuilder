@@ -6,17 +6,6 @@ json.listings current_user.listings do |chair|
   json.description  chair.description
 end
 
-json.messages current_user.all_messages do |message|
-  json.id           message.id
-  json.sender_id    message.sender_id
-  json.author       message.author.name
-  json.receiver_id  message.receiver_id
-  json.receiver     message.receiver.name
-  json.subject      message.subject
-  json.body         message.body
-  json.read         message.read
-end
-
 json.reservations current_user.reservations do |res|
   json.id     res.id
   json.chair  res.chair
@@ -35,4 +24,6 @@ json.conversations current_user.conversations do |conv|
   json.user_id       conv.id
   json.name          conv.name
   json.user_icon     conv.avatar.url(:icon)
+  json.messages      current_user.messages_with(conv.id)
+  json.unread        current_user.unread_conversation(conv.id)
 end

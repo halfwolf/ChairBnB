@@ -1,7 +1,78 @@
 // Place all the styles related to the Messages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+div.dash-new-messages > li {
+  height: 50px;
+  width: 100%;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #DCe0e0;
+  margin-top: 10px;
+}
 
+a.main-message-preview > img {
+  height: 50px;
+  width: 50px;
+  margin-left: 10px;
+  border-radius: 25px;
+  float: left;
+}
+
+a.main-message-preview > * {
+  font-size: 24px;
+}
+a.main-message-preview > h3 {
+  float: left;
+  margin-top: 10px;
+  margin-left: 40px;
+  font-style: bold;
+}
+
+a.main-message-preview > h5 {
+  float: right;
+  font-weight: bold;
+}
+
+
+
+
+
+div.dash-messages.dashboard-item > li {
+  height: 100px;
+  width: 100%;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #DCe0e0;
+  margin-top: 15px;
+}
+
+a.message-preview > img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  float: left;
+}
+
+a.message-preview > * {
+  font-size: 24px;
+}
+a.message-preview > h3 {
+  float: left;
+  margin-top: 35px;
+  margin-left: 40px;
+  font-style: bold;
+}
+
+a.message-preview > h4 {
+  float: left;
+  margin-top: 35px;
+  margin-left: 40px;
+  font-weight: normal;
+}
+a.message-preview > h5 {
+  float: right;
+  margin-top: 35px;
+  margin-right: 40px;
+  font-weight: bold;
+}
 
 section.conversation-show {
   width: 800px;
@@ -24,7 +95,7 @@ div.self-message {
 div.message-content {
   border-radius: 10px;
   background: #E5F7FE;
-  width: 713px;  
+  width: 713px;
   min-height: 85px;
 }
 
@@ -54,7 +125,7 @@ div.message-content > p {
   padding: 5px;
 }
 
-div.message-content > h3 { 
+div.message-content > h3 {
   color: grey;
 }
 
@@ -123,7 +194,7 @@ form.conversation-new-message {
   position: relative;
   border-radius: 10px;
   background: #E5F7FE;
-  width: 713px;  
+  width: 713px;
   min-height: 85px;
   margin-left: 90px ;
 }
@@ -133,7 +204,7 @@ form.conversation-new-message > label {
   position: absolute;
 }
 
-form.conversation-new-message > input { 
+form.conversation-new-message > input {
   float: left;
   display: block;
   background: inherit;
@@ -142,7 +213,7 @@ form.conversation-new-message > input {
   font-size: 14px;
 }
 
-form.conversation-new-message > textarea { 
+form.conversation-new-message > textarea {
   float: left;
   display: block;
   background: inherit;
@@ -183,7 +254,3 @@ form.conversation-new-message > button:active {
   box-shadow: none;
   bottom: -1px;
 }
-
-
-
-

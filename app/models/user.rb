@@ -1,15 +1,15 @@
 class User < ActiveRecord::Base
   validates :email, :password_digest, :name, :session_token, presence: true
   validates :password, length: { minimum: 6, allow_nil: true }
-  
+
 
   has_attached_file :avatar, styles: { medium: "300x300>",
   icon: "100x100#",
   icon_small: "50x50#" },
   default_url: "https://s3.amazonaws.com/chairbnb/public/chair-sm.png"
-  
+
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-  
+
   has_many( :listings,
     class_name: "Listing",
     foreign_key: :owner_id,
@@ -22,25 +22,25 @@ class User < ActiveRecord::Base
     foreign_key: :sitter_id,
     primary_key: :id,
     dependent: :destroy)
-    
+
   has_many( :sent_messages,
     class_name: "Message",
     foreign_key: :sender_id,
     primary_key: :id,
     dependent: :destroy)
-    
+
   has_many( :received_messages,
     class_name: "Message",
     foreign_key: :receiver_id,
     primary_key: :id,
     dependent: :destroy)
-    
+
   has_many :written_reviews,
     class_name: "Review",
     foreign_key: :author_id,
     primary_key: :id,
     dependent: :destroy
-  
+
   has_many :received_reviews, through: :listings, source: :reviews
 
   after_initialize :ensure_session_token
@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
   end
 
   attr_reader :password
-  
+
   def self.find_or_create_by_fb_auth_hash(auth)
     omniauth_id = auth['uid'] + auth['provider']
     user = User.find_by_omniauth_id(omniauth_id)
@@ -64,7 +64,7 @@ class User < ActiveRecord::Base
 
     return user
   end
-  
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(self.password)
@@ -83,25 +83,32 @@ class User < ActiveRecord::Base
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
   end
-  
+
   def all_messages
     Message.where("sender_id = :self_id OR receiver_id = :self_id", self_id: self.id)
   end
 
   def messages_with(id)
-    self.all_messages.where("sender_id = :id OR receiver_id = :id", id: id)
+    self.all_messages
+      .where("sender_id = :id OR receiver_id = :id", id: id)
+      .order("created_at")
   end
-  
+
+  def unread_conversation(id)
+    self.messages_with(id).any? { |msg| msg.read == false }
+  end
+
+
   def conversations
     conversators = []
     self.all_messages.each do |msg|
       conversators << User.find(msg.receiver_id) unless msg.receiver_id == self.id
       conversators << User.find(msg.sender_id) unless msg.sender_id == self.id
     end
-    
+
     conversators.uniq.sort.reverse
   end
-  
+
   def all_reviews
   end
 

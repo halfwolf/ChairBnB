@@ -337,7 +337,6 @@ div.dash-new-messages {
   margin-bottom: 20px;
   border: 1px solid #DCe0e0;
   background: white;
-
 }
 
 div.dash-new-reservations {
@@ -347,7 +346,14 @@ div.dash-new-reservations {
   margin-left: 20px;
   border: 1px solid #DCe0e0;
   background: white;
+}
 
+div.dash-new-messages > h2, div.dash-new-reservations > h2 {
+  display: block;
+  border-bottom: 1px solid #DCe0e0;
+  padding: 15px;
+  background: #EDEFED;
+  color: #505355;
 }
 
 div.review-form-modal {

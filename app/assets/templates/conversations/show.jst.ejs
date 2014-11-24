@@ -2,7 +2,7 @@
 
 <form class="conversation-new-message group">
   <i>New Message</i>
-  
+
   <label for="subject">subject</label>
   <input
     type="text"
@@ -21,7 +21,7 @@
 
 
 <div class="conversation">
-  <% conversation.messages().each(function(message) { %>    
+  <% conversation.messages().each(function(message) { %>
     <% if (message.attributes.author_id === conversation.attributes.self_id) { %>
       <div class="self-message group">
     <% } else { %>
@@ -34,9 +34,8 @@
         <h3><%= message.escape("send_date").toLocaleString('en') %></h3>
       </div>
     </div>
-    
-    
-    
+
+
+
     <% }); %>
 </div>
-  
